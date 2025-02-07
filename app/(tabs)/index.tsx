@@ -1,31 +1,43 @@
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ListView from "@screens/ListStack/ListView";
+import ScanView from "@screens/ListStack/ScanView";
+import DetailView from "@screens/ListStack/DetailView";
+import { ListStackParamList } from "app/types/navigation";
+import EditView from "@screens/ListStack/EditView";
+import { useThemeColor } from "@components/Themed";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+const Stack = createNativeStackNavigator<ListStackParamList>();
 
-export default function TabOneScreen() {
+export default function ListStack() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: { backgroundColor: useThemeColor({}, "background") },
+        headerTintColor: useThemeColor({}, "text"),
+      }}
+    >
+      <Stack.Screen
+        name="List"
+        component={ListView}
+        options={{ title: "Plants" }}
+      />
+      <Stack.Screen
+        name="ScanView"
+        component={ScanView}
+        options={{ title: "Add new plant" }}
+      />
+      <Stack.Screen
+        name="DetailView"
+        component={DetailView}
+        options={{ title: "Details" }}
+      />
+      <Stack.Screen
+        name="EditView"
+        component={EditView}
+        options={{ title: "Edit" }}
+      />
+    </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
