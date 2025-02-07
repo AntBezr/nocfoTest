@@ -28,7 +28,7 @@ const defaultImage = Image.resolveAssetSource(
 const ScanView: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [image, setImage] = useState<string>(defaultImage);
+  const [image, setImage] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const navigation = useNavigation<ScanViewNavigationProp>();
   const { pickImage, takePhoto } = useImagePicker();
@@ -50,7 +50,7 @@ const ScanView: React.FC = () => {
       name: string;
       description: string;
     } = {
-      image,
+      image: image || defaultImage,
       name,
       description,
     };

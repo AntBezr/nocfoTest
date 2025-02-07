@@ -20,6 +20,13 @@ This React Native mobile application, built with Expo, provides functionality to
 
 ## Screenshots
 
+Here are some screenshots of the app:
+
+### List View
+
+![List View](app/assets/screenshots/ListView.png)
+![List View Dark](app/assets/screenshots/ListViewDark.png)
+
 ## Getting Started
 
 ### Prerequisites
