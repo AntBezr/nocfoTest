@@ -1,5 +1,3 @@
-export {};
-
 export type Plant = {
   id: string;
   name: string;
@@ -7,3 +5,5 @@ export type Plant = {
   image: string;
   description: string;
 };
+
+export default {};

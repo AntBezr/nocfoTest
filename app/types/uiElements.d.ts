@@ -1,5 +1,3 @@
-export {};
-
 export type ButtonSecondaryProps = {
   title: string;
 };
@@ -18,3 +16,5 @@ export type LabeledInputProps = {
   numberOfLines?: number;
   style?: object;
 };
+
+export default {};

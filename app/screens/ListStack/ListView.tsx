@@ -15,10 +15,11 @@ const ListView: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1, padding: 10, alignItems: "center" }}>
-        <FlatList
+        <FlatList // Display a list of plants
           data={plants}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ListItem item={item} />}
+          renderItem={({ item }) => <ListItem item={item} />} // Render each plant item using the ListItem component
+          contentContainerStyle={{ paddingBottom: 50 }} // Add padding to the bottom of the list
         />
       </View>
       <Button

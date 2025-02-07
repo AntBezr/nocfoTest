@@ -19,3 +19,5 @@ export type ThemeProps = {
 export type TextProps = ThemeProps & DefaultText["props"];
 export type ViewProps = ThemeProps & DefaultView["props"];
 export type ThemedTextInputProps = ThemeProps & TextInputProps;
+
+export default {};

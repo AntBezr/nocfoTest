@@ -5,13 +5,14 @@ import {
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
 import { ListStackParamList } from "app/types/navigation";
-import { Text, ThemedModal, ThemedScrollView, View } from "@components/Themed";
+import { Text, ThemedScrollView, View } from "@components/Themed";
 
 import { useNavigation } from "expo-router";
 
 import { useAppSelector } from "app/hooks/useAppSelector";
 import { usePlantsActions } from "app/hooks/usePlantActions";
 import Button from "@components/ui/ButtonSecondary";
+import ConfirmDeleteModal from "@components/ui/ConfirmDeleteModal";
 
 type DetailViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
@@ -35,49 +36,10 @@ const DetailView: React.FC<Props> = ({ route }) => {
   const onPressEdit = () => {
     navigation.navigate("EditView", { plant });
   };
-  const onPressDelete = () => {
+  const onPressDelete = async () => {
+    await removePlant(plant.id);
     navigation.goBack();
-    removePlant(plant.id);
     setModalVisible(false);
-  };
-
-  const modal = () => {
-    return (
-      <ThemedModal
-        transparent={true}
-        visible={modalVisible}
-        animationType="fade"
-      >
-        <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15 }}>
-          Delete Plant
-        </Text>
-        <Text style={{ fontSize: 16, marginBottom: 20 }}>
-          Are you sure you want to delete this plant?
-        </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            width: "100%",
-            justifyContent: "space-between",
-          }}
-        >
-          <Button
-            style={{
-              backgroundColor: "red",
-              flex: 1,
-              marginHorizontal: 10,
-            }}
-            title="Yes"
-            onPress={onPressDelete}
-          />
-          <Button
-            style={{ flex: 1, marginHorizontal: 10 }}
-            title="No"
-            onPress={() => setModalVisible(false)}
-          />
-        </View>
-      </ThemedModal>
-    );
   };
 
   if (!plant) {
@@ -93,7 +55,16 @@ const DetailView: React.FC<Props> = ({ route }) => {
           padding: 10,
         }}
       >
-        {modal()}
+        <ConfirmDeleteModal
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          onPressYes={onPressDelete}
+          onPressNo={() => setModalVisible(false)}
+          title="Delete Plant"
+          question="Are you sure you want to delete this plant?"
+          buttonYesText="Yes"
+          buttonNoText="No"
+        />
         <View
           style={{
             alignItems: "center",

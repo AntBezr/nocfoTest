@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { Plant } from "../../types/store";
+import { Plant } from "../../types/store.d";
 import { useNavigation } from "expo-router";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { ListStackParamList } from "app/types/navigation";

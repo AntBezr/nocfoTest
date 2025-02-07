@@ -1,10 +1,4 @@
-import {
-  Text,
-  ThemedModal,
-  ThemedScrollView,
-  ThemedTextInput,
-  View,
-} from "@components/Themed";
+import { Text, ThemedModal, ThemedScrollView, View } from "@components/Themed";
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,

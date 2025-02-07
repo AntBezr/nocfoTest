@@ -10,7 +10,8 @@ export const usePlantsActions = () => {
   const dispatch = useAppDispatch();
 
   return {
-    addPlant: (plant: Plant) => dispatch(addPlant(plant)),
+    addPlant: (plant: { image: string; name: string; description: string }) =>
+      dispatch(addPlant(plant)),
     editPlant: (id: string, plant: Plant) => dispatch(editPlant({ id, plant })),
     removePlant: (id: string) => dispatch(removePlant({ id })),
   };

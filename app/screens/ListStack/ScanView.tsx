@@ -1,10 +1,4 @@
-import {
-  Text,
-  ThemedModal,
-  ThemedScrollView,
-  ThemedTextInput,
-  View,
-} from "@components/Themed";
+import { ThemedScrollView, View } from "@components/Themed";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { ListStackParamList } from "app/types/navigation";
 import { useNavigation } from "expo-router";
@@ -16,6 +10,7 @@ import Button from "@components/ui/ButtonSecondary";
 import UploadIcon from "@assets/icons/addPhoto.svg";
 import ImagePickerModal from "@components/ui/ImagePickerModal";
 import LabeledInput from "@components/ui/LabledInput";
+import { usePlantsActions } from "app/hooks/usePlantActions";
 
 type ScanViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
@@ -28,9 +23,10 @@ const defaultImage = Image.resolveAssetSource(
 const ScanView: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [image, setImage] = useState<string>("");
+  const [image, setImage] = useState<string>(defaultImage);
   const [description, setDescription] = useState<string>("");
   const navigation = useNavigation<ScanViewNavigationProp>();
+  const { addPlant } = usePlantsActions();
   const { pickImage, takePhoto } = useImagePicker();
   const [error, setError] = useState<string | null>(null);
 
@@ -54,7 +50,7 @@ const ScanView: React.FC = () => {
       name,
       description,
     };
-
+    addPlant(newPlant);
     navigation.goBack();
   };
 
@@ -110,6 +106,7 @@ const ScanView: React.FC = () => {
                 alignSelf: "center",
               }}
             />
+
             <View
               style={{
                 position: "absolute",

@@ -1,4 +1,4 @@
-import { Plant } from "./store";
+import { Plant } from "./store.d";
 
 export type TabBarIconProps = {
   tabName: string;
@@ -17,3 +17,5 @@ export type ListStackParamList = {
   DetailView: { plant: Plant };
   EditView: { plant: Plant };
 };
+
+export default {};
