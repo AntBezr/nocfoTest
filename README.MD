@@ -24,8 +24,8 @@ Here are some screenshots of the app:
 
 ### List View
 
-![List View](app/assets/screenshots/ListView.png)
-![List View Dark](app/assets/screenshots/ListViewDark.png)
+<img src="app/assets/screenshots/ListView.png" width="300"/>
+<img src="app/assets/screenshots/ListViewDark.png" width="300"/>
 
 ## Getting Started
 
