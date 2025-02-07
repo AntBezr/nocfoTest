@@ -24,8 +24,19 @@ Here are some screenshots of the app:
 
 ### List View
 
-<img src="app/assets/screenshots/ListView.png" width="300"/>
-<img src="app/assets/screenshots/ListViewDark.png" width="300"/>
+<img src="app/assets/screenshots/ListView.png" width="300"/> <img src="app/assets/screenshots/ListViewDark.png" width="300"/>
+
+### Scan View
+
+<img src="app/assets/screenshots/ScanView.png" width="300"/> <img src="app/assets/screenshots/ScanViewDark.png" width="300"/>
+
+### Detail View
+
+<img src="app/assets/screenshots/DetailView.png" width="300"/> <img src="app/assets/screenshots/DetailViewDark.png" width="300"/>
+
+### Edit View
+
+<img src="app/assets/screenshots/EditView.png" width="300"/> <img src="app/assets/screenshots/EditViewDark.png" width="300"/>
 
 ## Getting Started
 
