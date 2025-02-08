@@ -1,5 +1,6 @@
 import { Text, ThemedModal, View } from "@components/Themed";
 import React from "react";
+
 import Button from "./ButtonSecondary";
 
 interface ConfirmDeleteModalProps {
@@ -24,7 +25,7 @@ const ConfirmDeleteModal: React.FC<ConfirmDeleteModalProps> = ({
   buttonNoText,
 }) => {
   return (
-    <ThemedModal transparent={true} visible={modalVisible} animationType="fade">
+    <ThemedModal transparent visible={modalVisible} animationType="fade">
       <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15 }}>
         {title}
       </Text>

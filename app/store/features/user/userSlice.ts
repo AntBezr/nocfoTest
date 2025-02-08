@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Plant, User } from "../../../types/store.d";
-import { useColorScheme } from "app/hooks/useColorScheme.web";
 import { Asset } from "expo-asset";
+
+import { User } from "../../../types/store.d";
 const initialState: User = {
   id: "1",
-  theme: useColorScheme(),
+  theme: "default",
   image: Asset.fromModule(require("@assets/images/user.jpg")).uri,
   name: "John Doe",
   email: "asdas@gmail.com",

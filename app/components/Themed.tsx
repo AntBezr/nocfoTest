@@ -1,3 +1,12 @@
+import Colors from "@constants/Colors";
+import {
+  TextProps,
+  ThemedModalProps,
+  ThemedScrollViewProps,
+  ThemedTextInputProps,
+  ViewProps,
+} from "app/types/themedComponents";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   Text as DefaultText,
   View as DefaultView,
@@ -8,20 +17,11 @@ import {
   Keyboard,
 } from "react-native";
 
-import Colors from "@constants/Colors";
 import { useColorScheme } from "../hooks/useColorScheme";
-import {
-  TextProps,
-  ThemedModalProps,
-  ThemedScrollViewProps,
-  ThemedTextInputProps,
-  ViewProps,
-} from "app/types/themedComponents";
-import { LinearGradient } from "expo-linear-gradient";
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
-  colorName: keyof typeof Colors.light & keyof typeof Colors.dark
+  colorName: keyof typeof Colors.light & keyof typeof Colors.dark,
 ) {
   const theme = useColorScheme() ?? "light";
   const colorFromProps = props[theme];
@@ -44,7 +44,7 @@ export function View(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background"
+    "background",
   );
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
@@ -55,7 +55,7 @@ export function ThemedTextInput(props: ThemedTextInputProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background"
+    "background",
   );
 
   return (
@@ -82,7 +82,7 @@ export function ThemedScrollView(props: ThemedScrollViewProps) {
     props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background"
+    "background",
   );
 
   return (
@@ -108,7 +108,7 @@ export function ThemedModal({
 }: ThemedModalProps) {
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background"
+    "background",
   );
 
   return (
@@ -149,11 +149,11 @@ export function ThemedModal({
 export function ThemedGradient() {
   const fadeStartColor = useThemeColor(
     { light: "rgba(247, 249, 252,1)", dark: "rgba(0,0,0,1)" },
-    "background"
+    "background",
   );
   const fadeEndColor = useThemeColor(
     { light: "rgba(255,255,255,0)", dark: "rgba(18, 18, 18,0)" },
-    "background"
+    "background",
   );
 
   return (

@@ -1,13 +1,13 @@
+import { ThemedTextInput, View } from "@components/Themed";
+import Button from "@components/ui/ButtonSecondary";
+import ListItem from "@components/ui/ListItem";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useAppSelector } from "app/hooks/useAppSelector";
+import { Plant } from "app/types/store";
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 
 import { ListStackParamList } from "../../types/navigation";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ThemedTextInput, View } from "@components/Themed";
-import { useAppSelector } from "app/hooks/useAppSelector";
-import Button from "@components/ui/ButtonSecondary";
-import ListItem from "@components/ui/ListItem";
-import { Plant } from "app/types/store";
 
 type Props = NativeStackScreenProps<ListStackParamList, "List">;
 
@@ -18,7 +18,7 @@ const ListView: React.FC<Props> = ({ navigation }) => {
 
   useEffect(() => {
     const sortedPlants = [...plants].sort((a, b) =>
-      a.name.localeCompare(b.name)
+      a.name.localeCompare(b.name),
     );
     setFilteredPlants(sortedPlants);
   }, [plants]);
@@ -27,8 +27,8 @@ const ListView: React.FC<Props> = ({ navigation }) => {
     if (search) {
       setFilteredPlants(
         filteredPlants.filter((plant) =>
-          plant.name.toLowerCase().includes(search.toLowerCase())
-        )
+          plant.name.toLowerCase().includes(search.toLowerCase()),
+        ),
       );
     } else {
       setFilteredPlants(plants);
@@ -39,8 +39,8 @@ const ListView: React.FC<Props> = ({ navigation }) => {
     setSearch(text);
     setFilteredPlants(
       plants.filter((plant: Plant) =>
-        plant.name.toLowerCase().includes(text.toLowerCase())
-      )
+        plant.name.toLowerCase().includes(text.toLowerCase()),
+      ),
     );
   };
 
@@ -74,7 +74,9 @@ const ListView: React.FC<Props> = ({ navigation }) => {
       </View>
       <Button
         title="Add Plant"
-        onPress={() => navigation.navigate("ScanView")}
+        onPress={() => {
+          navigation.navigate("ScanView");
+        }}
         style={{
           position: "absolute",
           alignSelf: "center",

@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
-import { Text, View } from "@components/Themed";
 import SettingsIcon from "@assets/icons/settings.svg";
+import { Text, View } from "@components/Themed";
 import Button from "@components/ui/ButtonSecondary";
+import { StyleSheet } from "react-native";
 
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <View style={{ alignItems: "center" }}>
-        <SettingsIcon width={150} height={150} color={"#757575"} />
+        <SettingsIcon width={150} height={150} color="#757575" />
         <Text style={{ fontSize: 28, marginBottom: 20 }}>Settings</Text>
       </View>
       <View>

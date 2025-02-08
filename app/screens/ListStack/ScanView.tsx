@@ -1,16 +1,15 @@
+import UploadIcon from "@assets/icons/addPhoto.svg";
 import { Text, ThemedScrollView, View } from "@components/Themed";
+import Button from "@components/ui/ButtonSecondary";
+import ImagePickerModal from "@components/ui/ImagePickerModal";
+import LabeledInput from "@components/ui/LabledInput";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useImagePicker } from "app/hooks/useImagePicker";
+import { usePlantsActions } from "app/hooks/usePlantActions";
 import { ListStackParamList } from "app/types/navigation";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
-
-import { useImagePicker } from "app/hooks/useImagePicker";
-import Button from "@components/ui/ButtonSecondary";
-import UploadIcon from "@assets/icons/addPhoto.svg";
-import ImagePickerModal from "@components/ui/ImagePickerModal";
-import LabeledInput from "@components/ui/LabledInput";
-import { usePlantsActions } from "app/hooks/usePlantActions";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 type ScanViewNavigationProp = NativeStackNavigationProp<
@@ -18,7 +17,7 @@ type ScanViewNavigationProp = NativeStackNavigationProp<
   "ScanView"
 >;
 const defaultImage = Image.resolveAssetSource(
-  require("@assets/images/placeholder.png")
+  require("@assets/images/placeholder.png"),
 ).uri;
 
 const ScanView: React.FC = () => {
@@ -91,12 +90,16 @@ const ScanView: React.FC = () => {
         <KeyboardAwareScrollView>
           <ImagePickerModal
             visible={modalVisible}
-            onClose={() => setModalVisible(false)}
+            onClose={() => {
+              setModalVisible(false);
+            }}
             onPhotoTakePress={onPhotoTakePress}
             onChooseImagePress={onChooseImagePress}
           />
           <TouchableOpacity
-            onPress={() => setModalVisible(true)}
+            onPress={() => {
+              setModalVisible(true);
+            }}
             activeOpacity={0.7}
           >
             <View
@@ -139,7 +142,7 @@ const ScanView: React.FC = () => {
                 zIndex: 1,
                 marginTop: 50,
               }}
-              color={"rgba(255, 255, 255, 0.7)"}
+              color="rgba(255, 255, 255, 0.7)"
             />
           </TouchableOpacity>
 
@@ -158,7 +161,7 @@ const ScanView: React.FC = () => {
               label="Description"
               value={description}
               onChangeText={onDescriptionChange}
-              multiline={true}
+              multiline
               numberOfLines={3}
               style={{ maxHeight: 80 }}
             />
@@ -170,7 +173,9 @@ const ScanView: React.FC = () => {
       )}
       <Button
         title="Save"
-        onPress={() => onPressSave()}
+        onPress={() => {
+          onPressSave();
+        }}
         style={{
           position: "absolute",
           alignSelf: "center",

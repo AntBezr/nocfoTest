@@ -1,12 +1,14 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import ListStack from ".";
-import Colors from "@constants/Colors";
-import { useColorScheme } from "app/hooks/useColorScheme";
-import { useClientOnlyValue } from "app/hooks/useClientOnlyValue";
 import TabBarIcon from "@components/TabBarIcon";
+import Colors from "@constants/Colors";
+import { useColorScheme } from "@hooks/useColorScheme";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import { BottomTabParamList } from "../types/navigation";
-import SettingsStack from "./SettingsStack";
+
 import ProfileStack from "./ProfileStack";
+import SettingsStack from "./SettingsStack";
+
+import ListStack from ".";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();

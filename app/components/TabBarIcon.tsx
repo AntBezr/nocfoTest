@@ -1,8 +1,9 @@
-import { View, Text } from "react-native";
-import React from "react";
-import ListIcon from "@assets/icons/storage.svg";
 import ProfileIcon from "@assets/icons/profile.svg";
 import SettingsIcon from "@assets/icons/settings.svg";
+import ListIcon from "@assets/icons/storage.svg";
+import React from "react";
+import { View, Text } from "react-native";
+
 import { TabBarIconProps } from "../types/navigation";
 
 const TabBarIcon: React.FC<TabBarIconProps> = ({ tabName, color }) => {
@@ -20,9 +21,9 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({ tabName, color }) => {
   };
   return (
     <View className="w-16 h-16 flex py-2  items-center">
-      <View className="pb-[2px]"></View>
+      <View className="pb-[2px]" />
       <Text
-        style={{ color: color }}
+        style={{ color }}
         className="text-tabbar leading-[10.8px] font-nimbusSansBol"
       >
         {tabIcon()}

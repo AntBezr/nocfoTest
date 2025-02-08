@@ -1,5 +1,6 @@
 import { Text, ThemedModal, View } from "@components/Themed";
 import React from "react";
+
 import Button from "./ButtonSecondary";
 interface ImagePickerModalProps {
   visible: boolean;

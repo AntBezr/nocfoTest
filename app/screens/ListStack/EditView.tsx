@@ -1,18 +1,18 @@
+import UploadIcon from "@assets/icons/addPhoto.svg";
 import { Text, ThemedModal, ThemedScrollView, View } from "@components/Themed";
+import Button from "@components/ui/ButtonSecondary";
+import LabeledInput from "@components/ui/LabledInput";
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
+import { useImagePicker } from "app/hooks/useImagePicker";
+import { usePlantsActions } from "app/hooks/usePlantActions";
 import { ListStackParamList } from "app/types/navigation";
 import { Plant } from "app/types/store";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
-import { usePlantsActions } from "app/hooks/usePlantActions";
-import { useImagePicker } from "app/hooks/useImagePicker";
-import Button from "@components/ui/ButtonSecondary";
-import UploadIcon from "@assets/icons/addPhoto.svg";
-import LabeledInput from "@components/ui/LabledInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 type Props = NativeStackScreenProps<ListStackParamList, "EditView">;
@@ -63,9 +63,11 @@ const EditView: React.FC<Props> = ({ route }) => {
   const modal = () => {
     return (
       <ThemedModal
-        transparent={true}
+        transparent
         visible={modalVisible}
-        onClose={() => setModalVisible(false)}
+        onClose={() => {
+          setModalVisible(false);
+        }}
         animationType="fade"
       >
         <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15 }}>
@@ -115,7 +117,9 @@ const EditView: React.FC<Props> = ({ route }) => {
         >
           {modal()}
           <TouchableOpacity
-            onPress={() => setModalVisible(true)}
+            onPress={() => {
+              setModalVisible(true);
+            }}
             activeOpacity={0.7}
           >
             <View
@@ -157,7 +161,7 @@ const EditView: React.FC<Props> = ({ route }) => {
                 zIndex: 1,
                 marginTop: 50,
               }}
-              color={"rgba(255, 255, 255, 0.7)"}
+              color="rgba(255, 255, 255, 0.7)"
             />
           </TouchableOpacity>
 
@@ -173,7 +177,7 @@ const EditView: React.FC<Props> = ({ route }) => {
               label="Description"
               value={description}
               onChangeText={setDescription}
-              multiline={true}
+              multiline
               numberOfLines={3}
               style={{ maxHeight: 80 }}
             />
@@ -182,7 +186,9 @@ const EditView: React.FC<Props> = ({ route }) => {
       </KeyboardAwareScrollView>
       <Button
         title="Save"
-        onPress={() => onPressSave()}
+        onPress={() => {
+          onPressSave();
+        }}
         style={{
           position: "absolute",
           alignSelf: "center",

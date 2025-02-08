@@ -1,10 +1,11 @@
-import { Image, TouchableOpacity } from "react-native";
-import React from "react";
-import { Plant } from "../../types/store.d";
-import { useNavigation } from "expo-router";
+import { Text, View } from "@components/Themed";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { ListStackParamList } from "app/types/navigation";
-import { Text, View } from "@components/Themed";
+import { useNavigation } from "expo-router";
+import React from "react";
+import { Image, TouchableOpacity } from "react-native";
+
+import { Plant } from "../../types/store.d";
 
 type NavigationProp = NativeStackNavigationProp<ListStackParamList, "List">;
 
@@ -19,7 +20,9 @@ const ListItem = ({ item }: { item: Plant }) => {
           width: "100%",
           justifyContent: "space-between",
         }}
-        onPress={() => navigation.navigate("DetailView", { plant: item })}
+        onPress={() => {
+          navigation.navigate("DetailView", { plant: item });
+        }}
       >
         <View
           style={{

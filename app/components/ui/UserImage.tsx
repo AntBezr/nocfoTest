@@ -1,6 +1,6 @@
-import { Image } from "react-native";
-import React from "react";
 import { View } from "@components/Themed";
+import React from "react";
+import { Image } from "react-native";
 
 const UserImage = ({ image }: { image: string }) => {
   return (

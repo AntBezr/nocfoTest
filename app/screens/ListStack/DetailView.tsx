@@ -1,18 +1,16 @@
-import { Image } from "react-native";
-import React, { useState } from "react";
+import { Text, ThemedScrollView, View } from "@components/Themed";
+import Button from "@components/ui/ButtonSecondary";
+import ConfirmDeleteModal from "@components/ui/ConfirmDeleteModal";
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import { ListStackParamList } from "app/types/navigation";
-import { Text, ThemedScrollView, View } from "@components/Themed";
-
-import { useNavigation } from "expo-router";
-
 import { useAppSelector } from "app/hooks/useAppSelector";
 import { usePlantsActions } from "app/hooks/usePlantActions";
-import Button from "@components/ui/ButtonSecondary";
-import ConfirmDeleteModal from "@components/ui/ConfirmDeleteModal";
+import { ListStackParamList } from "app/types/navigation";
+import { useNavigation } from "expo-router";
+import React, { useState } from "react";
+import { Image } from "react-native";
 
 type DetailViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
@@ -23,7 +21,7 @@ type Props = NativeStackScreenProps<ListStackParamList, "DetailView">;
 const DetailView: React.FC<Props> = ({ route }) => {
   const plantId = route.params.plant?.id;
   const plant = useAppSelector((state) =>
-    state.plants.find((p) => p.id === plantId)
+    state.plants.find((p) => p.id === plantId),
   );
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const { removePlant } = usePlantsActions();
@@ -36,8 +34,8 @@ const DetailView: React.FC<Props> = ({ route }) => {
   const onPressEdit = () => {
     navigation.navigate("EditView", { plant });
   };
-  const onPressDelete = async () => {
-    await removePlant(plant.id);
+  const onPressDelete = () => {
+    removePlant(plant.id);
     navigation.goBack();
     setModalVisible(false);
   };
@@ -60,7 +58,9 @@ const DetailView: React.FC<Props> = ({ route }) => {
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           onPressYes={onPressDelete}
-          onPressNo={() => setModalVisible(false)}
+          onPressNo={() => {
+            setModalVisible(false);
+          }}
           title="Delete Plant"
           question="Are you sure you want to delete this plant?"
           buttonYesText="Yes"
@@ -124,7 +124,9 @@ const DetailView: React.FC<Props> = ({ route }) => {
           width: "90%",
           backgroundColor: "red",
         }}
-        onPress={() => setModalVisible(true)}
+        onPress={() => {
+          setModalVisible(true);
+        }}
       />
       <Button
         title="Edit"

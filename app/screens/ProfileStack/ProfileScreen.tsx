@@ -1,8 +1,7 @@
-import { StyleSheet } from "react-native";
-
 import { Text, View } from "@components/Themed";
 import UserImage from "@components/ui/UserImage";
 import { useAppSelector } from "app/hooks/useAppSelector";
+import { StyleSheet } from "react-native";
 
 export default function ProfileScreen() {
   const user = useAppSelector((state) => state.user);

@@ -1,10 +1,10 @@
+import { useThemeColor } from "@components/Themed";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import DetailView from "@screens/ListStack/DetailView";
+import EditView from "@screens/ListStack/EditView";
 import ListView from "@screens/ListStack/ListView";
 import ScanView from "@screens/ListStack/ScanView";
-import DetailView from "@screens/ListStack/DetailView";
 import { ListStackParamList } from "app/types/navigation";
-import EditView from "@screens/ListStack/EditView";
-import { useThemeColor } from "@components/Themed";
 
 const Stack = createNativeStackNavigator<ListStackParamList>();
 

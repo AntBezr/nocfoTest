@@ -1,6 +1,6 @@
 import { useThemeColor } from "@components/Themed";
 import { ButtonProps } from "app/types/uiElements";
-import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 
 function Button({
   title,
@@ -11,7 +11,7 @@ function Button({
 }: ButtonProps) {
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "tint"
+    "tint",
   );
   const textColor = useThemeColor({ light: "#fff", dark: "#fff" }, "text");
 

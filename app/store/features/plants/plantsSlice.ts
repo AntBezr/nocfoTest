@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Plant } from "../../../types/store.d";
 import { Asset } from "expo-asset";
+
+import { Plant } from "../../../types/store.d";
 const initialState: Plant[] = [
   {
     id: "1",
@@ -63,7 +64,7 @@ const plantsSlice = createSlice({
         image: string;
         name: string;
         description: string;
-      }>
+      }>,
     ) => {
       const newPlant: Plant = {
         id: state[state.length - 1].id + 1,

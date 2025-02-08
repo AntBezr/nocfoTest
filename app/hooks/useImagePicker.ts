@@ -2,7 +2,10 @@ import * as ImagePicker from "expo-image-picker";
 import { Alert } from "react-native";
 
 export const useImagePicker = () => {
-  const requestPermissions = async (type: "camera" | "gallery") => {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+  const requestPermissions = async (
+    type: "camera" | "gallery",
+  ): Promise<boolean> => {
     let permissionStatus;
 
     if (type === "camera") {
@@ -15,9 +18,7 @@ export const useImagePicker = () => {
     if (permissionStatus.status !== "granted") {
       Alert.alert(
         "Error",
-        `App needs access to your ${
-          type === "camera" ? "camera" : "gallery"
-        } to proceed.`,
+        `App needs access to your ${type === "camera" ? "camera" : "gallery"} to proceed.`,
         [
           {
             text: "Retry",
@@ -25,21 +26,22 @@ export const useImagePicker = () => {
           },
           {
             text: "Cancel",
-            onPress: () => console.log(`${type} permission denied`),
+            onPress: () => {
+              console.log(`${type} permission denied`);
+            },
             style: "cancel",
           },
-        ]
+        ],
       );
       return false;
     }
 
     return true;
   };
-
+  /* eslint-enable @typescript-eslint/no-unused-vars */
   const pickImage = async (): Promise<string | null> => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert("Error", "App need access to your gallery to pick image");
+    const hasPermission = await requestPermissions("gallery");
+    if (!hasPermission) {
       return null;
     }
 
@@ -58,10 +60,9 @@ export const useImagePicker = () => {
   };
 
   const takePhoto = async (): Promise<string | null> => {
-    const { status } = await ImagePicker.requestCameraPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert("Error", "App need access to your camera to take photo");
-      return null; // возвращаем null, если доступ не был предоставлен
+    const hasPermission = await requestPermissions("camera");
+    if (!hasPermission) {
+      return null;
     }
 
     const result = await ImagePicker.launchCameraAsync({
@@ -71,10 +72,11 @@ export const useImagePicker = () => {
     });
 
     if (!result.canceled) {
-      return result.assets[0].uri; // возвращаем URI изображения
+      return result.assets[0].uri;
     }
 
-    return null; // возвращаем null, если снимок не был сделан
+    return null;
   };
+
   return { pickImage, takePhoto };
 };
