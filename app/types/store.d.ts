@@ -6,4 +6,13 @@ export type Plant = {
   description: string;
 };
 
+export type User = {
+  id: string;
+  theme: string;
+  image: string;
+  name: string;
+  email: string;
+  bio: string;
+};
+
 export default {};

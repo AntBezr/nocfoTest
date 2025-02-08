@@ -13,8 +13,9 @@ type Props = NativeStackScreenProps<ListStackParamList, "List">;
 
 const ListView: React.FC<Props> = ({ navigation }) => {
   const plants = useAppSelector((state) => state.plants);
+  const sortedPlants = plants.sort((a, b) => a.name.localeCompare(b.name));
   const [search, setSearch] = useState("");
-  const [filteredPlants, setFilteredPlants] = useState(plants);
+  const [filteredPlants, setFilteredPlants] = useState(sortedPlants);
 
   const onSearch = (text: string) => {
     setSearch(text);
@@ -36,9 +37,8 @@ const ListView: React.FC<Props> = ({ navigation }) => {
           {
             margin: 16,
             borderRadius: 10,
-            shadowColor: "#000",
             shadowOffset: { width: 0, height: 10 },
-            shadowOpacity: 5,
+            shadowOpacity: 0.25,
             shadowRadius: 3.84,
             elevation: 5,
           },
@@ -47,10 +47,10 @@ const ListView: React.FC<Props> = ({ navigation }) => {
       <View
         style={{ flex: 1, padding: 10, paddingTop: 0, alignItems: "center" }}
       >
-        <FlatList // Display a list of plants
+        <FlatList
           data={filteredPlants}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ListItem item={item} />} // Render each plant item using the ListItem component
+          renderItem={({ item }) => <ListItem item={item} />}
           contentContainerStyle={{ paddingBottom: 50 }} // Add padding to the bottom of the list
         />
       </View>

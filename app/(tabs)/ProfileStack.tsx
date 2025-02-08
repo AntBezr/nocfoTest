@@ -1,35 +1,29 @@
-import { StyleSheet } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { ProfileStackParamList } from "app/types/navigation";
+import { useThemeColor } from "@components/Themed";
+import ProfileScreen from "@screens/ProfileStack/ProfileScreen";
+import EditProfile from "@screens/ProfileStack/EditProfile";
 
-import { Text, View } from "@components/Themed";
-import UserImage from "@components/ui/UserImage";
+const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
-import userData from "../data/userData.json";
-
-export default function TabThreeScreen() {
+export default function ProfileStack() {
   return (
-    <View style={styles.container}>
-      <UserImage image={userData.image} />
-      <Text style={styles.title}>{userData.name}</Text>
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: useThemeColor({}, "background") },
+        headerTintColor: useThemeColor({}, "text"),
+      }}
+    >
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ title: "Profile" }}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{ title: "Add new plant" }}
+      />
+    </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    fontStyle: "italic",
-    marginTop: 20,
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
-  },
-});

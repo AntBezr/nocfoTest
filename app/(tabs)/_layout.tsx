@@ -1,4 +1,3 @@
-import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ListStack from ".";
 import Colors from "@constants/Colors";
@@ -12,11 +11,12 @@ import ProfileStack from "./ProfileStack";
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const Tab = createBottomTabNavigator<BottomTabParamList>();
+
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: useClientOnlyValue(false, true),
+        headerShown: false,
       }}
     >
       <Tab.Screen

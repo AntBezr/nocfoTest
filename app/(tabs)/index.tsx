@@ -1,4 +1,3 @@
-import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ListView from "@screens/ListStack/ListView";
 import ScanView from "@screens/ListStack/ScanView";
@@ -13,7 +12,6 @@ export default function ListStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true,
         headerStyle: { backgroundColor: useThemeColor({}, "background") },
         headerTintColor: useThemeColor({}, "text"),
       }}

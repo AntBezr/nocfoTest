@@ -67,6 +67,7 @@ export function ThemedTextInput(props: ThemedTextInputProps) {
           padding: 10,
           borderRadius: 5,
           borderWidth: 1,
+          borderColor: "#ccc",
         },
         style,
       ]}

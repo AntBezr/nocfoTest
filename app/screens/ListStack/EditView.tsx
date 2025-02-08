@@ -13,6 +13,7 @@ import { useImagePicker } from "app/hooks/useImagePicker";
 import Button from "@components/ui/ButtonSecondary";
 import UploadIcon from "@assets/icons/addPhoto.svg";
 import LabeledInput from "@components/ui/LabledInput";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 type Props = NativeStackScreenProps<ListStackParamList, "EditView">;
 type DetailViewNavigationProp = NativeStackNavigationProp<
@@ -103,77 +104,82 @@ const EditView: React.FC<Props> = ({ route }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <ThemedScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-        }}
+      <KeyboardAwareScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ padding: 16 }}
       >
-        {modal()}
-        <TouchableOpacity
-          onPress={() => setModalVisible(true)}
-          activeOpacity={0.7}
+        <ThemedScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+          }}
         >
-          <View
-            style={{
-              position: "relative",
-              borderRadius: 20,
-              overflow: "hidden",
-              width: 250,
-              alignSelf: "center",
-            }}
+          {modal()}
+          <TouchableOpacity
+            onPress={() => setModalVisible(true)}
+            activeOpacity={0.7}
           >
-            <Image
-              source={{ uri: image }}
-              style={{
-                width: 250,
-                height: 250,
-                borderRadius: 20,
-                marginBottom: 20,
-                alignSelf: "center",
-              }}
-            />
             <View
               style={{
-                position: "absolute",
-                width: 250,
-                height: 250,
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
+                position: "relative",
                 borderRadius: 20,
+                overflow: "hidden",
+                width: 250,
+                alignSelf: "center",
               }}
+            >
+              <Image
+                source={{ uri: image }}
+                style={{
+                  width: 250,
+                  height: 250,
+                  borderRadius: 20,
+                  marginBottom: 20,
+                  alignSelf: "center",
+                }}
+              />
+              <View
+                style={{
+                  position: "absolute",
+                  width: 250,
+                  height: 250,
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  borderRadius: 20,
+                }}
+              />
+            </View>
+            <UploadIcon
+              width={150}
+              height={150}
+              style={{
+                position: "absolute",
+                justifyContent: "center",
+                alignSelf: "center",
+                zIndex: 1,
+                marginTop: 50,
+              }}
+              color={"rgba(255, 255, 255, 0.7)"}
+            />
+          </TouchableOpacity>
+
+          <View>
+            <LabeledInput
+              label="Name"
+              value={name}
+              onChangeText={setName}
+              multiline={false}
+              numberOfLines={1}
+            />
+            <LabeledInput
+              label="Description"
+              value={description}
+              onChangeText={setDescription}
+              multiline={true}
+              numberOfLines={3}
+              style={{ maxHeight: 80 }}
             />
           </View>
-          <UploadIcon
-            width={150}
-            height={150}
-            style={{
-              position: "absolute",
-              justifyContent: "center",
-              alignSelf: "center",
-              zIndex: 1,
-              marginTop: 50,
-            }}
-            color={"rgba(255, 255, 255, 0.7)"}
-          />
-        </TouchableOpacity>
-
-        <View>
-          <LabeledInput
-            label="Name"
-            value={name}
-            onChangeText={setName}
-            multiline={false}
-            numberOfLines={1}
-          />
-          <LabeledInput
-            label="Description"
-            value={description}
-            onChangeText={setDescription}
-            multiline={true}
-            numberOfLines={3}
-            style={{ maxHeight: 80 }}
-          />
-        </View>
-      </ThemedScrollView>
+        </ThemedScrollView>
+      </KeyboardAwareScrollView>
       <Button
         title="Save"
         onPress={() => onPressSave()}

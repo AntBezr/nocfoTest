@@ -55,7 +55,7 @@ Before running the project, make sure you have the following installed:
 
 ```sh
 git clone https://github.com/AntBezr/nocfoTest.git
-cd nocfo
+cd nocfoTest
 ```
 
 ### Install Dependencies

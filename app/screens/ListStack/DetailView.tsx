@@ -50,11 +50,12 @@ const DetailView: React.FC<Props> = ({ route }) => {
       <ThemedScrollView
         style={{
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 10,
+          paddingHorizontal: 20,
+          paddingTop: 20,
+          paddingBottom: 40, // Чтобы контент не прилипал к краю
         }}
       >
+        {/* Модальное окно подтверждения удаления */}
         <ConfirmDeleteModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
@@ -65,48 +66,51 @@ const DetailView: React.FC<Props> = ({ route }) => {
           buttonYesText="Yes"
           buttonNoText="No"
         />
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 20,
-          }}
-        >
+
+        {/* Контейнер для информации о растении */}
+        <View style={{ alignItems: "center", marginBottom: 20 }}>
+          {/* Изображение растения */}
           <Image
             source={{ uri: plant.image }}
             style={{
-              width: 250,
-              height: 250,
+              width: 260,
+              height: 260,
               borderRadius: 20,
-              marginBottom: 20,
+              marginBottom: 15,
               shadowColor: "#000",
-              shadowOffset: { width: 0, height: 5 },
-              shadowOpacity: 0.3,
-              shadowRadius: 6,
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.2,
+              shadowRadius: 5,
             }}
           />
+
+          {/* Название растения */}
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 28,
               fontWeight: "bold",
               textAlign: "center",
-              marginBottom: 10,
+              marginBottom: 6,
             }}
           >
             {plant.name}
           </Text>
-          <Text style={{ fontSize: 16, marginBottom: 10 }}>
-            Creation Date: {plant.dateAdded}
+
+          {/* Дата создания */}
+          <Text style={{ fontSize: 14, marginBottom: 8 }}>
+            Created on: {plant.dateAdded}
           </Text>
+
+          {/* Описание */}
           <Text
             style={{
               fontSize: 16,
               textAlign: "center",
-              marginBottom: 20,
-              paddingHorizontal: 20,
+              paddingHorizontal: 10,
+              lineHeight: 22, // Улучшает читаемость текста
             }}
           >
-            Description: {plant.description}
+            {plant.description}
           </Text>
         </View>
       </ThemedScrollView>

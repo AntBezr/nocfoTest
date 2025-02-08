@@ -18,4 +18,9 @@ export type ListStackParamList = {
   EditView: { plant: Plant };
 };
 
+export type ProfileStackParamList = {
+  ProfileScreen: undefined;
+  EditProfile: undefined;
+};
+
 export default {};
