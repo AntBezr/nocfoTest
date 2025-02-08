@@ -17,6 +17,7 @@ import {
   ThemedTextInputProps,
   ViewProps,
 } from "app/types/themedComponents";
+import { LinearGradient } from "expo-linear-gradient";
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -141,5 +142,30 @@ export function ThemedModal({
         </View>
       </TouchableWithoutFeedback>
     </Modal>
+  );
+}
+
+export function ThemedGradient() {
+  const fadeStartColor = useThemeColor(
+    { light: "rgba(247, 249, 252,1)", dark: "rgba(0,0,0,1)" },
+    "background"
+  );
+  const fadeEndColor = useThemeColor(
+    { light: "rgba(255,255,255,0)", dark: "rgba(18, 18, 18,0)" },
+    "background"
+  );
+
+  return (
+    <LinearGradient
+      colors={[fadeStartColor, fadeEndColor]}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 30,
+        zIndex: 1,
+      }}
+    />
   );
 }
