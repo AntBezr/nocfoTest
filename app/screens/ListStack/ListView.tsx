@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 
 import { ListStackParamList } from "../../types/navigation";
@@ -13,9 +13,27 @@ type Props = NativeStackScreenProps<ListStackParamList, "List">;
 
 const ListView: React.FC<Props> = ({ navigation }) => {
   const plants = useAppSelector((state) => state.plants);
-  const sortedPlants = plants.sort((a, b) => a.name.localeCompare(b.name));
   const [search, setSearch] = useState("");
-  const [filteredPlants, setFilteredPlants] = useState(sortedPlants);
+  const [filteredPlants, setFilteredPlants] = useState(plants);
+
+  useEffect(() => {
+    const sortedPlants = [...plants].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setFilteredPlants(sortedPlants);
+  }, [plants]);
+
+  useEffect(() => {
+    if (search) {
+      setFilteredPlants(
+        filteredPlants.filter((plant) =>
+          plant.name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredPlants(plants);
+    }
+  }, [search, plants]);
 
   const onSearch = (text: string) => {
     setSearch(text);
