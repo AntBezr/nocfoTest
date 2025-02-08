@@ -1,4 +1,4 @@
-import { ThemedScrollView, View } from "@components/Themed";
+import { Text, ThemedScrollView, View } from "@components/Themed";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { ListStackParamList } from "app/types/navigation";
 import { useNavigation } from "expo-router";
@@ -70,6 +70,16 @@ const ScanView: React.FC = () => {
     setModalVisible(false);
   };
 
+  const onNameChange = (text: string) => {
+    error && setError(null);
+    setName(text);
+  };
+
+  const onDescriptionChange = (text: string) => {
+    error && setError(null);
+    setDescription(text);
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <ThemedScrollView
@@ -135,7 +145,7 @@ const ScanView: React.FC = () => {
           <LabeledInput
             label="Name"
             value={name}
-            onChangeText={setName}
+            onChangeText={onNameChange}
             multiline={false}
             numberOfLines={1}
             style={{
@@ -145,13 +155,16 @@ const ScanView: React.FC = () => {
           <LabeledInput
             label="Description"
             value={description}
-            onChangeText={setDescription}
+            onChangeText={onDescriptionChange}
             multiline={true}
             numberOfLines={3}
             style={{ maxHeight: 80 }}
           />
         </View>
       </ThemedScrollView>
+      {error && (
+        <Text style={{ color: "red", textAlign: "center" }}>{error}</Text>
+      )}
       <Button
         title="Save"
         onPress={() => onPressSave()}

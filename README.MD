@@ -74,7 +74,7 @@ To start the development server, use:
 npx expo start -c
 ```
 
-This will open an Expo developer interface in your browser.
+This will open an Expo developer interface in your terminal.
 
 ### Run on a Device or Emulator
 
@@ -82,7 +82,9 @@ Running on a physical device
 
 - Install the Expo Go app from the Google Play Store or Apple App Store.
 - Scan the QR code shown in the terminal or the Expo Developer Interface.
-  Running on an emulator (Android)
+
+Running on an emulator (Android)
+
 - Install Android Studio and set up an emulator.
 - Ensure the emulator is running before starting the project.
 - Run:

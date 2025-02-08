@@ -7,6 +7,7 @@ import { View } from "@components/Themed";
 import { useAppSelector } from "app/hooks/useAppSelector";
 import Button from "@components/ui/ButtonSecondary";
 import ListItem from "@components/ui/ListItem";
+import SearchInput from "@components/ui/SearchInput";
 
 type Props = NativeStackScreenProps<ListStackParamList, "List">;
 
@@ -14,7 +15,10 @@ const ListView: React.FC<Props> = ({ navigation }) => {
   const plants = useAppSelector((state) => state.plants);
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, padding: 10, alignItems: "center" }}>
+      <SearchInput style />
+      <View
+        style={{ flex: 1, padding: 10, paddingTop: 0, alignItems: "center" }}
+      >
         <FlatList // Display a list of plants
           data={plants}
           keyExtractor={(item) => item.id}

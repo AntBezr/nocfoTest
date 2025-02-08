@@ -67,7 +67,7 @@ const plantsSlice = createSlice({
     ) => {
       const newPlant: Plant = {
         id: state[state.length - 1].id + 1,
-        dateAdded: new Date().toISOString(),
+        dateAdded: new Date().toISOString().substring(0, 10),
         ...action.payload,
       };
       state.push(newPlant);
