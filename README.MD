@@ -78,7 +78,7 @@ This will open an Expo developer interface in your terminal.
 
 ### Run on a Device or Emulator
 
-Running on a physical device
+Running on a physical device RECOMENDED
 
 - Install the Expo Go app from the Google Play Store or Apple App Store.
 - Scan the QR code shown in the terminal or the Expo Developer Interface.
