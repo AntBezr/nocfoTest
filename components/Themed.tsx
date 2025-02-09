@@ -1,11 +1,5 @@
 import Colors from "constants/Colors";
-import {
-  TextProps,
-  ThemedModalProps,
-  ThemedScrollViewProps,
-  ThemedTextInputProps,
-  ViewProps,
-} from "types/themedComponents";
+
 import { LinearGradient } from "expo-linear-gradient";
 import {
   Text as DefaultText,
@@ -16,6 +10,13 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
+import {
+  TextProps,
+  ThemedModalProps,
+  ThemedScrollViewProps,
+  ThemedTextInputProps,
+  ViewProps,
+} from "types/themedComponents";
 
 import { useColorScheme } from "../hooks/useColorScheme";
 

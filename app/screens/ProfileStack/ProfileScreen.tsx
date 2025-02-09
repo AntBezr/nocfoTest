@@ -1,6 +1,6 @@
 import { Text, View } from "@components/Themed";
 import UserImage from "@components/ui/UserImage";
-import  {useAppSelector}  from "hooks/useAppSelector";
+import { useAppSelector } from "hooks/useAppSelector";
 
 export default function ProfileScreen() {
   const user = useAppSelector((state) => state.user);

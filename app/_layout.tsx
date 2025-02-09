@@ -4,15 +4,15 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
-import { store } from "store/store";
-import { useColorScheme } from "hooks/useColorScheme";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import { useColorScheme } from "hooks/useColorScheme";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { Provider } from "react-redux";
+import { store } from "store/store";
 
 export {
   // Catch any errors thrown by the Layout component.

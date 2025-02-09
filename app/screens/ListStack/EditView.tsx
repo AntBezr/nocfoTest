@@ -2,19 +2,18 @@ import UploadIcon from "@assets/icons/addPhoto.svg";
 import { Text, ThemedModal, ThemedScrollView, View } from "@components/Themed";
 import Button from "@components/ui/ButtonSecondary";
 import LabeledInput from "@components/ui/LabledInput";
+import { useImagePicker } from "@hooks/useImagePicker";
+import { usePlantsActions } from "@hooks/usePlantActions";
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import { usePlantsActions } from "@hooks/usePlantActions";
-import { useImagePicker } from "@hooks/useImagePicker";
-import { ListStackParamList } from "types/navigation";
-import { Plant } from "types/store";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
+import { ListStackParamList } from "types/navigation";
+import { Plant } from "types/store";
 
 type Props = NativeStackScreenProps<ListStackParamList, "EditView">;
 type DetailViewNavigationProp = NativeStackNavigationProp<

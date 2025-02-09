@@ -1,17 +1,16 @@
 import { Text, ThemedScrollView, View } from "@components/Themed";
 import Button from "@components/ui/ButtonSecondary";
 import ConfirmDeleteModal from "@components/ui/ConfirmDeleteModal";
+import { useAppSelector } from "@hooks/useAppSelector";
+import { usePlantsActions } from "@hooks/usePlantActions";
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-
-import { ListStackParamList } from "types/navigation";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Image } from "react-native";
-import { useAppSelector } from "@hooks/useAppSelector";
-import { usePlantsActions } from "@hooks/usePlantActions";
+import { ListStackParamList } from "types/navigation";
 
 type DetailViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,

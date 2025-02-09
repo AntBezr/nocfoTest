@@ -5,12 +5,12 @@ module.exports = {
     "universe/web",
     "universe/shared/typescript-analysis",
     "eslint:recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
   overrides: [
     {
       files: ["*.ts", "*.tsx", "*.d.ts"],
-      parser: '@typescript-eslint/parser', 
+      parser: "@typescript-eslint/parser",
       parserOptions: {
         project: "./tsconfig.json",
       },
@@ -62,7 +62,6 @@ module.exports = {
             group: "internal",
             position: "after",
           },
-          
         ],
         "newlines-between": "always",
         alphabetize: {

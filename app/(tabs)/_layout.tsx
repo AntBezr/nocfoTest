@@ -1,7 +1,8 @@
-import TabBarIcon from "@components/TabBarIcon";
 import Colors from "constants/Colors";
-import { useColorScheme } from "hooks/useColorScheme";
+
+import TabBarIcon from "@components/TabBarIcon";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useColorScheme } from "hooks/useColorScheme";
 
 import { BottomTabParamList } from "../../types/navigation";
 

@@ -21,7 +21,7 @@ export default function ListStack() {
         component={ListView}
         options={{
           title: "Plants",
-         }}
+        }}
       />
       <Stack.Screen
         name="ScanView"

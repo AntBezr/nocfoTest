@@ -22,4 +22,3 @@ export type ProfileStackParamList = {
   ProfileScreen: undefined;
   EditProfile: undefined;
 };
-

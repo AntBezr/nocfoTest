@@ -80,4 +80,3 @@ export const useImagePicker = () => {
 
   return { pickImage, takePhoto };
 };
-

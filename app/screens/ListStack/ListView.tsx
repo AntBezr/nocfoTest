@@ -1,14 +1,13 @@
 import { ThemedTextInput, View } from "@components/Themed";
 import Button from "@components/ui/ButtonSecondary";
 import ListItem from "@components/ui/ListItem";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useAppSelector } from "@hooks/useAppSelector";
-import { Plant } from "types/store";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
+import { Plant } from "types/store";
 
 import { ListStackParamList } from "../../../types/navigation";
-
 
 type Props = NativeStackScreenProps<ListStackParamList, "List">;
 

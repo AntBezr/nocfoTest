@@ -26,5 +26,3 @@ export type ThemeProps = {
 export type TextProps = ThemeProps & Text["props"];
 export type ViewProps = ThemeProps & View["props"];
 export type ThemedTextInputProps = ThemeProps & TextInputProps;
-
-

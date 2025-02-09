@@ -1,6 +1,6 @@
 import { Text, ThemedTextInput, View } from "@components/Themed";
-import { LabeledInputProps } from "types/uiElements";
 import React from "react";
+import { LabeledInputProps } from "types/uiElements";
 
 const LabeledInput: React.FC<LabeledInputProps> = ({
   label,

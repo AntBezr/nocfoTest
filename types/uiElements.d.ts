@@ -4,7 +4,6 @@ export type ButtonSecondaryProps = {
   title: string;
 };
 
-
 export interface ButtonProps extends TouchableOpacityProps {
   title: string;
   lightColor?: string;
@@ -21,4 +20,3 @@ export type LabeledInputProps = {
   numberOfLines?: number;
   style?: object;
 };
-

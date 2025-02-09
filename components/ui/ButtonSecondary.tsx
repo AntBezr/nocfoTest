@@ -1,6 +1,6 @@
 import { useThemeColor } from "@components/Themed";
+import { GestureResponderEvent, TouchableOpacity, Text } from "react-native";
 import { ButtonProps } from "types/uiElements";
-import {GestureResponderEvent, TouchableOpacity, Text } from "react-native";
 
 function Button({
   title,
@@ -15,7 +15,6 @@ function Button({
     "tint",
   );
   const textColor = useThemeColor({ light: "#fff", dark: "#fff" }, "text");
-
 
   return (
     <TouchableOpacity

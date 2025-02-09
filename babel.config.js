@@ -12,7 +12,6 @@ module.exports = {
           "@constants": "./constants",
           "@store": "./store",
           "@hooks": "./hooks",
-          
         },
       },
     ],

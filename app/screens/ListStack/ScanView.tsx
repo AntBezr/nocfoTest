@@ -4,13 +4,13 @@ import Button from "@components/ui/ButtonSecondary";
 import ImagePickerModal from "@components/ui/ImagePickerModal";
 import LabeledInput from "@components/ui/LabledInput";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import  {useImagePicker}  from "hooks/useImagePicker";
-import  {usePlantsActions}  from "hooks/usePlantActions";
-import { ListStackParamList } from "types/navigation";
 import { useNavigation } from "expo-router";
+import { useImagePicker } from "hooks/useImagePicker";
+import { usePlantsActions } from "hooks/usePlantActions";
 import React, { useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { ListStackParamList } from "types/navigation";
 
 type ScanViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,

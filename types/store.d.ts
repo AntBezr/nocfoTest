@@ -14,4 +14,3 @@ export type User = {
   email: string;
   bio: string;
 };
-
