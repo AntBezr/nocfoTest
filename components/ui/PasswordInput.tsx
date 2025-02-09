@@ -19,7 +19,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         value={value}
         onChangeText={onChangeText}
         secureTextEntry
-        placeholderTextColor={'rgba(130, 130, 130, 0.5)'}
+        placeholderTextColor="rgba(130, 130, 130, 0.5)"
         style={{
           flex: 1,
           borderWidth: 1,

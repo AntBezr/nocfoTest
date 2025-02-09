@@ -1,7 +1,7 @@
-import { Text, ThemedModal, View } from "@components/Themed";
-import React from "react";
+import { Text, ThemedModal, View } from '@components/Themed';
+import React from 'react';
 
-import Button from "./ButtonSecondary";
+import Button from './ButtonSecondary';
 interface ImagePickerModalProps {
   visible: boolean;
   onClose: () => void;
@@ -22,17 +22,17 @@ const ImagePickerModal: React.FC<ImagePickerModalProps> = ({
       onClose={onClose}
       animationType="fade"
     >
-      <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15 }}>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 15 }}>
         Change picture
       </Text>
-      <View style={{ flexDirection: "column", width: "100%", height: 100 }}>
+      <View style={{ flexDirection: 'column', width: '100%', height: 100 }}>
         <Button
           onPress={onPhotoTakePress}
           title="Take a photo"
           style={{
             flex: 1,
-            width: "100%",
-            justifyContent: "center",
+            width: '100%',
+            justifyContent: 'center',
           }}
         />
         <Button
@@ -40,8 +40,8 @@ const ImagePickerModal: React.FC<ImagePickerModalProps> = ({
           title="Choose from gallery"
           style={{
             flex: 1,
-            width: "100%",
-            justifyContent: "center",
+            width: '100%',
+            justifyContent: 'center',
           }}
         />
       </View>

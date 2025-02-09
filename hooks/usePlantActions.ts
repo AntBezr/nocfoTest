@@ -2,10 +2,10 @@ import {
   addPlant,
   editPlant,
   removePlant,
-} from "store/features/plants/plantsSlice";
-import { Plant } from "types/store";
+} from 'store/features/plants/plantsSlice';
+import { Plant } from 'types/store';
 
-import { useAppDispatch } from "./useAppDispatch";
+import { useAppDispatch } from './useAppDispatch';
 
 export const usePlantsActions = () => {
   const dispatch = useAppDispatch();

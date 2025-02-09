@@ -1,19 +1,19 @@
-import ProfileIcon from "@assets/icons/profile.svg";
-import SettingsIcon from "@assets/icons/settings.svg";
-import ListIcon from "@assets/icons/storage.svg";
-import React from "react";
-import { View, Text } from "react-native";
+import ProfileIcon from '@assets/icons/profile.svg';
+import SettingsIcon from '@assets/icons/settings.svg';
+import ListIcon from '@assets/icons/storage.svg';
+import React from 'react';
+import { View, Text } from 'react-native';
 
-import { TabBarIconProps } from "../types/navigation";
+import { TabBarIconProps } from '../types/navigation';
 
 const TabBarIcon: React.FC<TabBarIconProps> = ({ tabName, color }) => {
   const tabIcon = () => {
     switch (tabName) {
-      case "list":
+      case 'list':
         return <ListIcon style={{ marginBottom: -3 }} color={color} />;
-      case "profile":
+      case 'profile':
         return <ProfileIcon style={{ marginBottom: -3 }} color={color} />;
-      case "settings":
+      case 'settings':
         return <SettingsIcon style={{ marginBottom: -3 }} color={color} />;
       default:
         return <ListIcon style={{ marginBottom: -3 }} />;

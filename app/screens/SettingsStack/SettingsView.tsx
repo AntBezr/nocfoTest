@@ -1,14 +1,14 @@
-import SettingsIcon from "@assets/icons/settings.svg";
-import { Text, View } from "@components/Themed";
-import Button from "@components/ui/ButtonSecondary";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "expo-router";
-import React from "react";
-import { SettingsStackParamList } from "types/navigation";
+import SettingsIcon from '@assets/icons/settings.svg';
+import { Text, View } from '@components/Themed';
+import Button from '@components/ui/ButtonSecondary';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from 'expo-router';
+import React from 'react';
+import { SettingsStackParamList } from 'types/navigation';
 
 type SettingsViewNavigationProp = NativeStackNavigationProp<
   SettingsStackParamList,
-  "SettingsView"
+  'SettingsView'
 >;
 
 const SettingsView = () => {
@@ -18,12 +18,12 @@ const SettingsView = () => {
     <View
       style={{
         flex: 1,
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-around",
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-around',
       }}
     >
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: 'center' }}>
         <SettingsIcon width={150} height={150} color="#757575" />
         <Text style={{ fontSize: 28, marginBottom: 20 }}>Settings</Text>
       </View>
@@ -31,13 +31,13 @@ const SettingsView = () => {
         <Button
           title="Notifications"
           onPress={() => {
-            navigation.navigate("NotificationView");
+            navigation.navigate('NotificationView');
           }}
         />
         <Button
           title="Change password"
           onPress={() => {
-            navigation.navigate("ChangePasswordView");
+            navigation.navigate('ChangePasswordView');
           }}
         />
       </View>

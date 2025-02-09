@@ -1,6 +1,6 @@
-import { useThemeColor } from "@components/Themed";
-import { GestureResponderEvent, TouchableOpacity, Text } from "react-native";
-import { ButtonProps } from "types/uiElements";
+import { useThemeColor } from '@components/Themed';
+import { GestureResponderEvent, TouchableOpacity, Text } from 'react-native';
+import { ButtonProps } from 'types/uiElements';
 
 function Button({
   title,
@@ -12,9 +12,9 @@ function Button({
 }: ButtonProps) {
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "tint",
+    'tint',
   );
-  const textColor = useThemeColor({ light: "#fff", dark: "#fff" }, "text");
+  const textColor = useThemeColor({ light: '#fff', dark: '#fff' }, 'text');
 
   return (
     <TouchableOpacity
@@ -24,10 +24,10 @@ function Button({
           paddingVertical: 12,
           paddingHorizontal: 20,
           borderRadius: 8,
-          alignItems: "center",
+          alignItems: 'center',
           opacity: props.disabled ? 0.5 : 1,
           marginVertical: 5,
-          shadowColor: "#000",
+          shadowColor: '#000',
           shadowOpacity: 0.2,
           shadowRadius: 5,
           width: 200,
@@ -37,7 +37,7 @@ function Button({
       {...props}
       onPress={(event: GestureResponderEvent) => onPress?.(event)}
     >
-      <Text style={{ color: textColor, fontWeight: "600" }}>{title}</Text>
+      <Text style={{ color: textColor, fontWeight: '600' }}>{title}</Text>
     </TouchableOpacity>
   );
 }

@@ -1,15 +1,15 @@
-import Colors from "constants/Colors";
+import Colors from 'constants/Colors';
 
-import TabBarIcon from "@components/TabBarIcon";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useColorScheme } from "hooks/useColorScheme";
+import TabBarIcon from '@components/TabBarIcon';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useColorScheme } from 'hooks/useColorScheme';
 
-import { BottomTabParamList } from "../../types/navigation";
+import { BottomTabParamList } from '../../types/navigation';
 
-import ProfileStack from "./ProfileStack";
-import SettingsStack from "./SettingsStack";
+import ProfileStack from './ProfileStack';
+import SettingsStack from './SettingsStack';
 
-import ListStack from ".";
+import ListStack from '.';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -18,7 +18,7 @@ export default function TabLayout() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
       }}
     >
@@ -27,7 +27,7 @@ export default function TabLayout() {
         component={ListStack}
         options={{
           headerShown: false,
-          title: "List",
+          title: 'List',
           tabBarIcon: ({ color }) => (
             <TabBarIcon tabName="list" color={color} />
           ),
@@ -37,7 +37,7 @@ export default function TabLayout() {
         name="Settings"
         component={SettingsStack}
         options={{
-          title: "Settings",
+          title: 'Settings',
           tabBarIcon: ({ color }) => (
             <TabBarIcon tabName="settings" color={color} />
           ),
@@ -47,7 +47,7 @@ export default function TabLayout() {
         name="Profile"
         component={ProfileStack}
         options={{
-          title: "Profile",
+          title: 'Profile',
           tabBarIcon: ({ color }) => (
             <TabBarIcon tabName="profile" color={color} />
           ),

@@ -1,4 +1,4 @@
-import { useAppSelector } from "./useAppSelector";
+import { useAppSelector } from './useAppSelector';
 
 export const usePlantsSelectors = () => {
   const plants = useAppSelector((state) => state.plants);

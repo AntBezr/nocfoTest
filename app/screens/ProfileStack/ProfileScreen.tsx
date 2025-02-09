@@ -17,13 +17,15 @@ export default function ProfileScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('EditProfileView')}
+        onPress={() => {
+          navigation.navigate('EditProfileView');
+        }}
         style={{ position: 'absolute', top: 16, right: 16 }}
       >
-        <SettingsIcon color={'#757575'} width={36} height={36} />
+        <SettingsIcon color="#757575" width={36} height={36} />
       </TouchableOpacity>
       <Image
-        source={require('@assets/images/user.jpg')}
+        source={{ uri: user.image }}
         style={{
           width: 140,
           height: 140,

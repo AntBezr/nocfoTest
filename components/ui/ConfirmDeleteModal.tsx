@@ -1,7 +1,7 @@
-import { Text, ThemedModal, View } from "@components/Themed";
-import React from "react";
+import { Text, ThemedModal, View } from '@components/Themed';
+import React from 'react';
 
-import Button from "./ButtonSecondary";
+import Button from './ButtonSecondary';
 
 interface ConfirmDeleteModalProps {
   modalVisible: boolean;
@@ -26,22 +26,22 @@ const ConfirmDeleteModal: React.FC<ConfirmDeleteModalProps> = ({
 }) => {
   return (
     <ThemedModal transparent visible={modalVisible} animationType="fade">
-      <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15 }}>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 15 }}>
         {title}
       </Text>
       <Text style={{ fontSize: 16, marginBottom: 20 }}>{question}</Text>
       <View
         style={{
-          flexDirection: "row",
-          width: "100%",
-          justifyContent: "space-between",
+          flexDirection: 'row',
+          width: '100%',
+          justifyContent: 'space-between',
         }}
       >
         <Button
           style={{
             flex: 1,
             marginHorizontal: 10,
-            backgroundColor: "red",
+            backgroundColor: 'red',
           }}
           title={buttonYesText}
           onPress={onPressYes}
