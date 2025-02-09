@@ -1,5 +1,5 @@
 import UploadIcon from '@assets/icons/addPhoto.svg';
-import { View } from '@components/Themed';
+import { ThemedScrollView, View } from '@components/Themed';
 import Button from '@components/ui/ButtonSecondary';
 import LabeledInput from '@components/ui/LabledInput';
 import { useAppSelector } from '@hooks/useAppSelector';
@@ -9,6 +9,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from 'expo-router';
 import { useState } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { ProfileStackParamList } from 'types/navigation';
 
 type EditProfileNavigationProp = NativeStackNavigationProp<
@@ -47,56 +48,67 @@ const EditProfile = () => {
   };
 
   return (
-    <View style={{ padding: 16, flex: 1, alignItems: 'center' }}>
-      <TouchableOpacity onPress={onChooseImagePress}>
-        <UploadIcon
-          width={70}
-          height={70}
-          style={{
-            position: 'absolute',
-            justifyContent: 'center',
-            alignSelf: 'center',
-            zIndex: 1,
-            marginTop: 35,
+    <View style={{ flex: 1, padding: 16 }}>
+      <KeyboardAwareScrollView style={{ flex: 1 }}>
+        <ThemedScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
           }}
-          color="rgba(255, 255, 255, 0.7)"
-        />
-        <Image
-          source={{ uri: userImage }}
-          style={{
-            width: 140,
-            height: 140,
-            borderRadius: 120,
-            resizeMode: 'cover',
-            marginBottom: 16,
-          }}
-        />
-      </TouchableOpacity>
-      <View style={{ width: '100%' }}>
-        <LabeledInput
-          label="Name"
-          placeholder="Name"
-          type="name"
-          value={userName}
-          onChangeText={setUserName}
-        />
-        <LabeledInput
-          label="Email"
-          placeholder="Email"
-          type="emailAddress"
-          value={userEmail}
-          onChangeText={setUserEmail}
-        />
-        <LabeledInput
-          label="Bio"
-          placeholder="Bio"
-          type="none"
-          value={userBio}
-          onChangeText={setUserBio}
-          multiline
-          numberOfLines={4}
-        />
-      </View>
+        >
+          <TouchableOpacity
+            onPress={onChooseImagePress}
+            style={{ alignItems: 'center' }}
+          >
+            <UploadIcon
+              width={70}
+              height={70}
+              style={{
+                position: 'absolute',
+                justifyContent: 'center',
+                alignSelf: 'center',
+                zIndex: 1,
+                marginTop: 35,
+              }}
+              color="rgba(255, 255, 255, 0.7)"
+            />
+            <Image
+              source={{ uri: userImage }}
+              style={{
+                width: 140,
+                height: 140,
+                borderRadius: 120,
+                resizeMode: 'cover',
+                marginBottom: 16,
+              }}
+            />
+          </TouchableOpacity>
+          <View style={{ width: '100%' }}>
+            <LabeledInput
+              label="Name"
+              placeholder="Name"
+              type="name"
+              value={userName}
+              onChangeText={setUserName}
+            />
+            <LabeledInput
+              label="Email"
+              placeholder="Email"
+              type="emailAddress"
+              value={userEmail}
+              onChangeText={setUserEmail}
+            />
+            <LabeledInput
+              label="Bio"
+              placeholder="Bio"
+              type="none"
+              value={userBio}
+              onChangeText={setUserBio}
+              multiline
+              numberOfLines={4}
+            />
+          </View>
+        </ThemedScrollView>
+      </KeyboardAwareScrollView>
       <Button
         title="Save"
         onPress={() => {

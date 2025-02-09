@@ -15,7 +15,14 @@ export default function ProfileScreen() {
   const user = useAppSelector((state) => state.user);
   const navigation = useNavigation<PrfileViewNavigationProp>();
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 16,
+      }}
+    >
       <TouchableOpacity
         onPress={() => {
           navigation.navigate('EditProfileView');
@@ -43,7 +50,14 @@ export default function ProfileScreen() {
       >
         {user.name}
       </Text>
-      <Text style={{ fontSize: 20, fontStyle: 'italic', marginBottom: 16 }}>
+      <Text
+        style={{
+          fontSize: 20,
+          fontStyle: 'italic',
+          marginBottom: 16,
+          textAlign: 'center',
+        }}
+      >
         {user.bio}
       </Text>
       <Text style={{ fontSize: 16 }}>{user.email}</Text>

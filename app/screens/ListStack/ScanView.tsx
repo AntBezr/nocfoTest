@@ -81,7 +81,7 @@ const ScanView: React.FC = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, padding: 16 }}>
       <ThemedScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -180,7 +180,7 @@ const ScanView: React.FC = () => {
           position: 'absolute',
           alignSelf: 'center',
           bottom: 10,
-          width: '90%',
+          width: '100%',
         }}
       />
     </View>

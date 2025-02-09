@@ -104,11 +104,8 @@ const EditView: React.FC<Props> = ({ route }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <KeyboardAwareScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={{ padding: 16 }}
-      >
+    <View style={{ flex: 1, padding: 16 }}>
+      <KeyboardAwareScrollView style={{ flex: 1 }}>
         <ThemedScrollView
           contentContainerStyle={{
             flexGrow: 1,
@@ -192,7 +189,7 @@ const EditView: React.FC<Props> = ({ route }) => {
           position: 'absolute',
           alignSelf: 'center',
           bottom: 10,
-          width: '90%',
+          width: '100%',
         }}
       />
     </View>
