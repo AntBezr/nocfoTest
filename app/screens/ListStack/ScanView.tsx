@@ -1,30 +1,30 @@
-import UploadIcon from "@assets/icons/addPhoto.svg";
-import { Text, ThemedScrollView, View } from "@components/Themed";
-import Button from "@components/ui/ButtonSecondary";
-import ImagePickerModal from "@components/ui/ImagePickerModal";
-import LabeledInput from "@components/ui/LabledInput";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useNavigation } from "expo-router";
-import { useImagePicker } from "hooks/useImagePicker";
-import { usePlantsActions } from "hooks/usePlantActions";
-import React, { useState } from "react";
-import { Image, TouchableOpacity } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { ListStackParamList } from "types/navigation";
+import UploadIcon from '@assets/icons/addPhoto.svg';
+import { Text, ThemedScrollView, View } from '@components/Themed';
+import Button from '@components/ui/ButtonSecondary';
+import ImagePickerModal from '@components/ui/ImagePickerModal';
+import LabeledInput from '@components/ui/LabledInput';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from 'expo-router';
+import { useImagePicker } from 'hooks/useImagePicker';
+import { usePlantsActions } from 'hooks/usePlantActions';
+import React, { useState } from 'react';
+import { Image, TouchableOpacity } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { ListStackParamList } from 'types/navigation';
 
 type ScanViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
-  "ScanView"
+  'ScanView'
 >;
 const defaultImage = Image.resolveAssetSource(
-  require("@assets/images/placeholder.png"),
+  require('@assets/images/placeholder.png'),
 ).uri;
 
 const ScanView: React.FC = () => {
-  const [name, setName] = useState<string>("");
+  const [name, setName] = useState<string>('');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [image, setImage] = useState<string>(defaultImage);
-  const [description, setDescription] = useState<string>("");
+  const [description, setDescription] = useState<string>('');
   const navigation = useNavigation<ScanViewNavigationProp>();
   const { addPlant } = usePlantsActions();
   const { pickImage, takePhoto } = useImagePicker();
@@ -33,11 +33,11 @@ const ScanView: React.FC = () => {
   const onPressSave = () => {
     error && setError(null);
     if (!name) {
-      setError("Name is required");
+      setError('Name is required');
       return;
     }
     if (!description) {
-      setError("Description is required");
+      setError('Description is required');
       return;
     }
 
@@ -104,11 +104,11 @@ const ScanView: React.FC = () => {
           >
             <View
               style={{
-                position: "relative",
+                position: 'relative',
                 borderRadius: 20,
-                overflow: "hidden",
+                overflow: 'hidden',
                 width: 250,
-                alignSelf: "center",
+                alignSelf: 'center',
               }}
             >
               <Image
@@ -118,16 +118,16 @@ const ScanView: React.FC = () => {
                   height: 250,
                   borderRadius: 20,
                   marginBottom: 20,
-                  alignSelf: "center",
+                  alignSelf: 'center',
                 }}
               />
 
               <View
                 style={{
-                  position: "absolute",
+                  position: 'absolute',
                   width: 250,
                   height: 250,
-                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
                   borderRadius: 20,
                 }}
               />
@@ -136,9 +136,9 @@ const ScanView: React.FC = () => {
               width={150}
               height={150}
               style={{
-                position: "absolute",
-                justifyContent: "center",
-                alignSelf: "center",
+                position: 'absolute',
+                justifyContent: 'center',
+                alignSelf: 'center',
                 zIndex: 1,
                 marginTop: 50,
               }}
@@ -169,7 +169,7 @@ const ScanView: React.FC = () => {
         </KeyboardAwareScrollView>
       </ThemedScrollView>
       {error && (
-        <Text style={{ color: "red", textAlign: "center" }}>{error}</Text>
+        <Text style={{ color: 'red', textAlign: 'center' }}>{error}</Text>
       )}
       <Button
         title="Save"
@@ -177,10 +177,10 @@ const ScanView: React.FC = () => {
           onPressSave();
         }}
         style={{
-          position: "absolute",
-          alignSelf: "center",
+          position: 'absolute',
+          alignSelf: 'center',
           bottom: 10,
-          width: "90%",
+          width: '90%',
         }}
       />
     </View>

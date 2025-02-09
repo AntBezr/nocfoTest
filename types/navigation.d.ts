@@ -1,4 +1,4 @@
-import { Plant } from "./store";
+import { Plant } from './store';
 
 export type TabBarIconProps = {
   tabName: string;
@@ -7,8 +7,8 @@ export type TabBarIconProps = {
 
 export type BottomTabParamList = {
   index: ListStackParamList;
-  Settings: undefined;
-  Profile: undefined;
+  Settings: SettingsStackParamList;
+  Profile: ProfileStackParamList;
 };
 
 export type ListStackParamList = {
@@ -21,4 +21,11 @@ export type ListStackParamList = {
 export type ProfileStackParamList = {
   ProfileScreen: undefined;
   EditProfile: undefined;
+};
+
+export type SettingsStackParamList = {
+  SettingsView: undefined;
+  ChangePasswordView: undefined;
+  NotificationView: undefined;
+  RecomendationsView: undefined;
 };

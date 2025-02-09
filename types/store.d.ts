@@ -13,4 +13,12 @@ export type User = {
   name: string;
   email: string;
   bio: string;
+  notifications: NotificationsType;
+};
+
+export type NotificationsType = {
+  waterPlant: boolean;
+  friendRequest: boolean;
+  plantBirthday: boolean;
+  plantCareTips: boolean;
 };

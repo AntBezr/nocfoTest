@@ -1,39 +1,34 @@
-import { ThemedTextInput, View } from "@components/Themed";
-import Button from "@components/ui/ButtonSecondary";
-import ListItem from "@components/ui/ListItem";
-import { useAppSelector } from "@hooks/useAppSelector";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React, { useEffect, useState } from "react";
-import { FlatList } from "react-native";
-import { Plant } from "types/store";
+import { ThemedTextInput, View } from '@components/Themed';
+import Button from '@components/ui/ButtonSecondary';
+import ListItem from '@components/ui/ListItem';
+import { useAppSelector } from '@hooks/useAppSelector';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+import { FlatList } from 'react-native';
+import { Plant } from 'types/store';
 
-import { ListStackParamList } from "../../../types/navigation";
+import { ListStackParamList } from '../../../types/navigation';
 
-type Props = NativeStackScreenProps<ListStackParamList, "List">;
+type Props = NativeStackScreenProps<ListStackParamList, 'List'>;
 
 const ListView: React.FC<Props> = ({ navigation }) => {
   const plants = useAppSelector((state) => state.plants);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filteredPlants, setFilteredPlants] = useState(plants);
 
   useEffect(() => {
-    const sortedPlants = [...plants].sort((a, b) =>
-      a.name.localeCompare(b.name),
-    );
-    setFilteredPlants(sortedPlants);
-  }, [plants]);
-
-  useEffect(() => {
+    let updatedPlants = [...plants];
+    // Filter plants by name
     if (search) {
-      setFilteredPlants(
-        filteredPlants.filter((plant) =>
-          plant.name.toLowerCase().includes(search.toLowerCase()),
-        ),
+      updatedPlants = updatedPlants.filter((plant) =>
+        plant.name.toLowerCase().includes(search.toLowerCase()),
       );
-    } else {
-      setFilteredPlants(plants);
     }
-  }, [search, plants]);
+    // Sort plants by name
+    updatedPlants.sort((a, b) => a.name.localeCompare(b.name));
+
+    setFilteredPlants(updatedPlants);
+  }, [plants, search]);
 
   const onSearch = (text: string) => {
     setSearch(text);
@@ -62,7 +57,7 @@ const ListView: React.FC<Props> = ({ navigation }) => {
         ]}
       />
       <View
-        style={{ flex: 1, padding: 10, paddingTop: 0, alignItems: "center" }}
+        style={{ flex: 1, padding: 10, paddingTop: 0, alignItems: 'center' }}
       >
         <FlatList
           data={filteredPlants}
@@ -74,13 +69,13 @@ const ListView: React.FC<Props> = ({ navigation }) => {
       <Button
         title="Add Plant"
         onPress={() => {
-          navigation.navigate("ScanView");
+          navigation.navigate('ScanView');
         }}
         style={{
-          position: "absolute",
-          alignSelf: "center",
+          position: 'absolute',
+          alignSelf: 'center',
           bottom: 10,
-          width: "90%",
+          width: '90%',
         }}
       />
     </View>

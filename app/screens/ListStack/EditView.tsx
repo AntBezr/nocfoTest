@@ -1,24 +1,24 @@
-import UploadIcon from "@assets/icons/addPhoto.svg";
-import { Text, ThemedModal, ThemedScrollView, View } from "@components/Themed";
-import Button from "@components/ui/ButtonSecondary";
-import LabeledInput from "@components/ui/LabledInput";
-import { useImagePicker } from "@hooks/useImagePicker";
-import { usePlantsActions } from "@hooks/usePlantActions";
+import UploadIcon from '@assets/icons/addPhoto.svg';
+import { Text, ThemedModal, ThemedScrollView, View } from '@components/Themed';
+import Button from '@components/ui/ButtonSecondary';
+import LabeledInput from '@components/ui/LabledInput';
+import { useImagePicker } from '@hooks/useImagePicker';
+import { usePlantsActions } from '@hooks/usePlantActions';
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
-} from "@react-navigation/native-stack";
-import { useNavigation } from "expo-router";
-import React, { useState } from "react";
-import { Image, TouchableOpacity } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { ListStackParamList } from "types/navigation";
-import { Plant } from "types/store";
+} from '@react-navigation/native-stack';
+import { useNavigation } from 'expo-router';
+import React, { useState } from 'react';
+import { Image, TouchableOpacity } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { ListStackParamList } from 'types/navigation';
+import { Plant } from 'types/store';
 
-type Props = NativeStackScreenProps<ListStackParamList, "EditView">;
+type Props = NativeStackScreenProps<ListStackParamList, 'EditView'>;
 type DetailViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
-  "EditView"
+  'EditView'
 >;
 
 const EditView: React.FC<Props> = ({ route }) => {
@@ -70,21 +70,21 @@ const EditView: React.FC<Props> = ({ route }) => {
         }}
         animationType="fade"
       >
-        <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15 }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 15 }}>
           Change picture
         </Text>
         <View
           style={{
-            flexDirection: "column",
-            width: "100%",
+            flexDirection: 'column',
+            width: '100%',
             height: 100,
           }}
         >
           <Button
             style={{
               flex: 1,
-              width: "100%",
-              justifyContent: "center",
+              width: '100%',
+              justifyContent: 'center',
             }}
             onPress={onPhotoTakePress}
             title="Take a photo"
@@ -92,8 +92,8 @@ const EditView: React.FC<Props> = ({ route }) => {
           <Button
             style={{
               flex: 1,
-              width: "100%",
-              justifyContent: "center",
+              width: '100%',
+              justifyContent: 'center',
             }}
             onPress={onChooseImagePress}
             title="Chose from galery"
@@ -123,11 +123,11 @@ const EditView: React.FC<Props> = ({ route }) => {
           >
             <View
               style={{
-                position: "relative",
+                position: 'relative',
                 borderRadius: 20,
-                overflow: "hidden",
+                overflow: 'hidden',
                 width: 250,
-                alignSelf: "center",
+                alignSelf: 'center',
               }}
             >
               <Image
@@ -137,15 +137,15 @@ const EditView: React.FC<Props> = ({ route }) => {
                   height: 250,
                   borderRadius: 20,
                   marginBottom: 20,
-                  alignSelf: "center",
+                  alignSelf: 'center',
                 }}
               />
               <View
                 style={{
-                  position: "absolute",
+                  position: 'absolute',
                   width: 250,
                   height: 250,
-                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
                   borderRadius: 20,
                 }}
               />
@@ -154,9 +154,9 @@ const EditView: React.FC<Props> = ({ route }) => {
               width={150}
               height={150}
               style={{
-                position: "absolute",
-                justifyContent: "center",
-                alignSelf: "center",
+                position: 'absolute',
+                justifyContent: 'center',
+                alignSelf: 'center',
                 zIndex: 1,
                 marginTop: 50,
               }}
@@ -189,10 +189,10 @@ const EditView: React.FC<Props> = ({ route }) => {
           onPressSave();
         }}
         style={{
-          position: "absolute",
-          alignSelf: "center",
+          position: 'absolute',
+          alignSelf: 'center',
           bottom: 10,
-          width: "90%",
+          width: '90%',
         }}
       />
     </View>

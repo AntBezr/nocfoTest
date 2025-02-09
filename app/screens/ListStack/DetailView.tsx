@@ -1,22 +1,22 @@
-import { Text, ThemedScrollView, View } from "@components/Themed";
-import Button from "@components/ui/ButtonSecondary";
-import ConfirmDeleteModal from "@components/ui/ConfirmDeleteModal";
-import { useAppSelector } from "@hooks/useAppSelector";
-import { usePlantsActions } from "@hooks/usePlantActions";
+import { Text, ThemedScrollView, View } from '@components/Themed';
+import Button from '@components/ui/ButtonSecondary';
+import ConfirmDeleteModal from '@components/ui/ConfirmDeleteModal';
+import { useAppSelector } from '@hooks/useAppSelector';
+import { usePlantsActions } from '@hooks/usePlantActions';
 import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
-} from "@react-navigation/native-stack";
-import { useNavigation } from "expo-router";
-import React, { useState } from "react";
-import { Image } from "react-native";
-import { ListStackParamList } from "types/navigation";
+} from '@react-navigation/native-stack';
+import { useNavigation } from 'expo-router';
+import React, { useState } from 'react';
+import { Image } from 'react-native';
+import { ListStackParamList } from 'types/navigation';
 
 type DetailViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
-  "DetailView"
+  'DetailView'
 >;
-type Props = NativeStackScreenProps<ListStackParamList, "DetailView">;
+type Props = NativeStackScreenProps<ListStackParamList, 'DetailView'>;
 
 const DetailView: React.FC<Props> = ({ route }) => {
   const plantId = route.params.plant?.id;
@@ -32,7 +32,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
   }
 
   const onPressEdit = () => {
-    navigation.navigate("EditView", { plant });
+    navigation.navigate('EditView', { plant });
   };
   const onPressDelete = () => {
     removePlant(plant.id);
@@ -66,7 +66,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
           buttonNoText="No"
         />
 
-        <View style={{ alignItems: "center", marginBottom: 20 }}>
+        <View style={{ alignItems: 'center', marginBottom: 20 }}>
           <Image
             source={{ uri: plant.image }}
             style={{
@@ -74,7 +74,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
               height: 260,
               borderRadius: 20,
               marginBottom: 15,
-              shadowColor: "#000",
+              shadowColor: '#000',
               shadowOffset: { width: 0, height: 4 },
               shadowOpacity: 0.2,
               shadowRadius: 5,
@@ -84,8 +84,8 @@ const DetailView: React.FC<Props> = ({ route }) => {
           <Text
             style={{
               fontSize: 28,
-              fontWeight: "bold",
-              textAlign: "center",
+              fontWeight: 'bold',
+              textAlign: 'center',
               marginBottom: 6,
             }}
           >
@@ -99,7 +99,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
           <Text
             style={{
               fontSize: 16,
-              textAlign: "center",
+              textAlign: 'center',
               paddingHorizontal: 10,
               lineHeight: 22,
             }}
@@ -112,11 +112,11 @@ const DetailView: React.FC<Props> = ({ route }) => {
       <Button
         title="Delete"
         style={{
-          position: "absolute",
-          alignSelf: "center",
+          position: 'absolute',
+          alignSelf: 'center',
           bottom: 60,
-          width: "90%",
-          backgroundColor: "red",
+          width: '90%',
+          backgroundColor: 'red',
         }}
         onPress={() => {
           setModalVisible(true);
@@ -125,10 +125,10 @@ const DetailView: React.FC<Props> = ({ route }) => {
       <Button
         title="Edit"
         style={{
-          position: "absolute",
-          alignSelf: "center",
+          position: 'absolute',
+          alignSelf: 'center',
           bottom: 10,
-          width: "90%",
+          width: '90%',
         }}
         onPress={onPressEdit}
       />

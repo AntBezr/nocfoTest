@@ -20,3 +20,9 @@ export type LabeledInputProps = {
   numberOfLines?: number;
   style?: object;
 };
+
+export type SwitchProps = {
+  label: string;
+  value: boolean;
+  onValueChange: (value: boolean) => void;
+};
