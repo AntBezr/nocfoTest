@@ -4,17 +4,20 @@ module.exports = {
     "universe/native",
     "universe/web",
     "universe/shared/typescript-analysis",
-    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
   overrides: [
     {
       files: ["*.ts", "*.tsx", "*.d.ts"],
+      parser: '@typescript-eslint/parser', 
       parserOptions: {
         project: "./tsconfig.json",
       },
     },
   ],
-  plugins: ["react-hooks"],
+  plugins: ["react-hooks", "prettier"],
+
   rules: {
     "import/order": [
       "error",

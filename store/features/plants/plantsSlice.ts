@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Asset } from "expo-asset";
 
-import { Plant } from "../../../types/store.d";
+import { Plant } from "../../../types/store";
 const initialState: Plant[] = [
   {
     id: "1",

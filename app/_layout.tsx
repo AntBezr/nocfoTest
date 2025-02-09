@@ -4,8 +4,8 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
-import { store } from "@store/store";
-import { useColorScheme } from "app/hooks/useColorScheme";
+import { store } from "store/store";
+import { useColorScheme } from "hooks/useColorScheme";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";

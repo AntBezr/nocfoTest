@@ -1,12 +1,17 @@
+import { GestureResponderEvent, TouchableOpacityProps } from "react-native";
+
 export type ButtonSecondaryProps = {
   title: string;
 };
 
-export type ButtonProps = TouchableOpacityProps & {
+
+export interface ButtonProps extends TouchableOpacityProps {
   title: string;
   lightColor?: string;
   darkColor?: string;
-};
+  onPress?: (event: GestureResponderEvent) => void;
+  style?: any;
+}
 
 export type LabeledInputProps = {
   label: string;
@@ -17,4 +22,3 @@ export type LabeledInputProps = {
   style?: object;
 };
 
-export default {};

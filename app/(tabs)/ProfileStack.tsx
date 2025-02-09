@@ -2,7 +2,7 @@ import { useThemeColor } from "@components/Themed";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EditProfile from "@screens/ProfileStack/EditProfile";
 import ProfileScreen from "@screens/ProfileStack/ProfileScreen";
-import { ProfileStackParamList } from "app/types/navigation";
+import { ProfileStackParamList } from "types/navigation";
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 

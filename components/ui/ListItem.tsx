@@ -1,6 +1,6 @@
 import { Text, View } from "@components/Themed";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { ListStackParamList } from "app/types/navigation";
+import { ListStackParamList } from "types/navigation";
 import { useNavigation } from "expo-router";
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";

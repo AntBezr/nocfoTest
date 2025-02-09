@@ -4,7 +4,7 @@ import DetailView from "@screens/ListStack/DetailView";
 import EditView from "@screens/ListStack/EditView";
 import ListView from "@screens/ListStack/ListView";
 import ScanView from "@screens/ListStack/ScanView";
-import { ListStackParamList } from "app/types/navigation";
+import { ListStackParamList } from "types/navigation";
 
 const Stack = createNativeStackNavigator<ListStackParamList>();
 
@@ -19,7 +19,9 @@ export default function ListStack() {
       <Stack.Screen
         name="List"
         component={ListView}
-        options={{ title: "Plants" }}
+        options={{
+          title: "Plants",
+         }}
       />
       <Stack.Screen
         name="ScanView"

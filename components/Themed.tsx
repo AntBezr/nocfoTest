@@ -1,11 +1,11 @@
-import Colors from "@constants/Colors";
+import Colors from "constants/Colors";
 import {
   TextProps,
   ThemedModalProps,
   ThemedScrollViewProps,
   ThemedTextInputProps,
   ViewProps,
-} from "app/types/themedComponents";
+} from "types/themedComponents";
 import { LinearGradient } from "expo-linear-gradient";
 import {
   Text as DefaultText,

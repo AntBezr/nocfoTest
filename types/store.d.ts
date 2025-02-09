@@ -15,4 +15,3 @@ export type User = {
   bio: string;
 };
 
-export default {};

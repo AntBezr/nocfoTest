@@ -2,12 +2,13 @@ import { ThemedTextInput, View } from "@components/Themed";
 import Button from "@components/ui/ButtonSecondary";
 import ListItem from "@components/ui/ListItem";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { useAppSelector } from "app/hooks/useAppSelector";
-import { Plant } from "app/types/store";
+import { useAppSelector } from "@hooks/useAppSelector";
+import { Plant } from "types/store";
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 
-import { ListStackParamList } from "../../types/navigation";
+import { ListStackParamList } from "../../../types/navigation";
+
 
 type Props = NativeStackScreenProps<ListStackParamList, "List">;
 
@@ -48,7 +49,6 @@ const ListView: React.FC<Props> = ({ navigation }) => {
     <View style={{ flex: 1 }}>
       <ThemedTextInput
         value={search}
-        type="search"
         onChangeText={onSearch}
         placeholder="Search"
         style={[

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Asset } from "expo-asset";
 
-import { User } from "../../../types/store.d";
+import { User } from "../../../types/store";
 const initialState: User = {
   id: "1",
   theme: "default",

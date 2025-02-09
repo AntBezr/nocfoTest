@@ -1,11 +1,12 @@
 import { useThemeColor } from "@components/Themed";
-import { ButtonProps } from "app/types/uiElements";
-import { TouchableOpacity, Text } from "react-native";
+import { ButtonProps } from "types/uiElements";
+import {GestureResponderEvent, TouchableOpacity, Text } from "react-native";
 
 function Button({
   title,
   lightColor,
   darkColor,
+  onPress,
   style,
   ...props
 }: ButtonProps) {
@@ -14,6 +15,7 @@ function Button({
     "tint",
   );
   const textColor = useThemeColor({ light: "#fff", dark: "#fff" }, "text");
+
 
   return (
     <TouchableOpacity
@@ -34,13 +36,7 @@ function Button({
         style,
       ]}
       {...props}
-      onPress={() => {
-        if (props.onPress) {
-          props.onPress();
-        } else {
-          console.log(`No onPress function for ${title}`);
-        }
-      }}
+      onPress={(event: GestureResponderEvent) => onPress?.(event)}
     >
       <Text style={{ color: textColor, fontWeight: "600" }}>{title}</Text>
     </TouchableOpacity>

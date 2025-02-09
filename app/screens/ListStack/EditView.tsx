@@ -6,14 +6,15 @@ import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import { useImagePicker } from "app/hooks/useImagePicker";
-import { usePlantsActions } from "app/hooks/usePlantActions";
-import { ListStackParamList } from "app/types/navigation";
-import { Plant } from "app/types/store";
+import { usePlantsActions } from "@hooks/usePlantActions";
+import { useImagePicker } from "@hooks/useImagePicker";
+import { ListStackParamList } from "types/navigation";
+import { Plant } from "types/store";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Image, TouchableOpacity } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 
 type Props = NativeStackScreenProps<ListStackParamList, "EditView">;
 type DetailViewNavigationProp = NativeStackNavigationProp<
@@ -78,7 +79,6 @@ const EditView: React.FC<Props> = ({ route }) => {
             flexDirection: "column",
             width: "100%",
             height: 100,
-            justifyContent: "",
           }}
         >
           <Button

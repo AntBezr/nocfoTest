@@ -1,4 +1,4 @@
-import { Plant } from "./store.d";
+import { Plant } from "./store";
 
 export type TabBarIconProps = {
   tabName: string;
@@ -23,4 +23,3 @@ export type ProfileStackParamList = {
   EditProfile: undefined;
 };
 
-export default {};

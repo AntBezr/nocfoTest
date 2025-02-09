@@ -1,4 +1,11 @@
-import { ModalProps, ScrollViewProps } from "react-native";
+import React from "react";
+import {
+  ModalProps,
+  ScrollViewProps,
+  Text,
+  TextInputProps,
+  View,
+} from "react-native";
 
 export interface ThemedModalProps extends ModalProps {
   lightColor?: string;
@@ -16,8 +23,8 @@ export type ThemeProps = {
   darkColor?: string;
 };
 
-export type TextProps = ThemeProps & DefaultText["props"];
-export type ViewProps = ThemeProps & DefaultView["props"];
+export type TextProps = ThemeProps & Text["props"];
+export type ViewProps = ThemeProps & View["props"];
 export type ThemedTextInputProps = ThemeProps & TextInputProps;
 
-export default {};
+

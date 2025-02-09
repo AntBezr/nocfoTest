@@ -1,9 +1,9 @@
 import TabBarIcon from "@components/TabBarIcon";
-import Colors from "@constants/Colors";
-import { useColorScheme } from "@hooks/useColorScheme";
+import Colors from "constants/Colors";
+import { useColorScheme } from "hooks/useColorScheme";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { BottomTabParamList } from "../types/navigation";
+import { BottomTabParamList } from "../../types/navigation";
 
 import ProfileStack from "./ProfileStack";
 import SettingsStack from "./SettingsStack";

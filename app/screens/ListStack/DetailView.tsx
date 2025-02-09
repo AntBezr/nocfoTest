@@ -5,12 +5,13 @@ import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import { useAppSelector } from "app/hooks/useAppSelector";
-import { usePlantsActions } from "app/hooks/usePlantActions";
-import { ListStackParamList } from "app/types/navigation";
+
+import { ListStackParamList } from "types/navigation";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Image } from "react-native";
+import { useAppSelector } from "@hooks/useAppSelector";
+import { usePlantsActions } from "@hooks/usePlantActions";
 
 type DetailViewNavigationProp = NativeStackNavigationProp<
   ListStackParamList,
@@ -50,10 +51,9 @@ const DetailView: React.FC<Props> = ({ route }) => {
           flex: 1,
           paddingHorizontal: 20,
           paddingTop: 20,
-          paddingBottom: 40, // Чтобы контент не прилипал к краю
+          paddingBottom: 40,
         }}
       >
-        {/* Модальное окно подтверждения удаления */}
         <ConfirmDeleteModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
@@ -67,9 +67,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
           buttonNoText="No"
         />
 
-        {/* Контейнер для информации о растении */}
         <View style={{ alignItems: "center", marginBottom: 20 }}>
-          {/* Изображение растения */}
           <Image
             source={{ uri: plant.image }}
             style={{
@@ -84,7 +82,6 @@ const DetailView: React.FC<Props> = ({ route }) => {
             }}
           />
 
-          {/* Название растения */}
           <Text
             style={{
               fontSize: 28,
@@ -96,18 +93,16 @@ const DetailView: React.FC<Props> = ({ route }) => {
             {plant.name}
           </Text>
 
-          {/* Дата создания */}
           <Text style={{ fontSize: 14, marginBottom: 8 }}>
             Created on: {plant.dateAdded}
           </Text>
 
-          {/* Описание */}
           <Text
             style={{
               fontSize: 16,
               textAlign: "center",
               paddingHorizontal: 10,
-              lineHeight: 22, // Улучшает читаемость текста
+              lineHeight: 22,
             }}
           >
             {plant.description}
