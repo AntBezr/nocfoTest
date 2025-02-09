@@ -44,12 +44,11 @@ const DetailView: React.FC<Props> = ({ route }) => {
     return <Text>Loading...</Text>;
   }
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, padding: 16 }}>
       <ThemedScrollView
         style={{
           flex: 1,
-          paddingHorizontal: 20,
-          paddingTop: 20,
+
           paddingBottom: 40,
         }}
       >
@@ -100,7 +99,6 @@ const DetailView: React.FC<Props> = ({ route }) => {
             style={{
               fontSize: 16,
               textAlign: 'center',
-              paddingHorizontal: 10,
               lineHeight: 22,
             }}
           >
@@ -115,7 +113,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
           position: 'absolute',
           alignSelf: 'center',
           bottom: 60,
-          width: '90%',
+          width: '100%',
           backgroundColor: 'red',
         }}
         onPress={() => {
@@ -128,7 +126,7 @@ const DetailView: React.FC<Props> = ({ route }) => {
           position: 'absolute',
           alignSelf: 'center',
           bottom: 10,
-          width: '90%',
+          width: '100%',
         }}
         onPress={onPressEdit}
       />

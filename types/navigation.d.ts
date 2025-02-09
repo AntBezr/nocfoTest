@@ -19,8 +19,8 @@ export type ListStackParamList = {
 };
 
 export type ProfileStackParamList = {
-  ProfileScreen: undefined;
-  EditProfile: undefined;
+  ProfileView: undefined;
+  EditProfileView: undefined;
 };
 
 export type SettingsStackParamList = {

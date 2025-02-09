@@ -1,4 +1,8 @@
-import { GestureResponderEvent, TouchableOpacityProps } from "react-native";
+import {
+  GestureResponderEvent,
+  TextInputProps,
+  TouchableOpacityProps,
+} from 'react-native';
 
 export type ButtonSecondaryProps = {
   title: string;
@@ -18,6 +22,15 @@ export type LabeledInputProps = {
   onChangeText: (text: string) => void;
   multiline?: boolean;
   numberOfLines?: number;
+  type?: TextInputProps['textContentType'];
+  placeholder?: string;
+  style?: object;
+};
+export type PasswordInputProps = {
+  label: string;
+  value: string;
+  onChangeText: (text: string) => void;
+  placeholder: string;
   style?: object;
 };
 

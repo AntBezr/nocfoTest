@@ -40,14 +40,14 @@ const ListView: React.FC<Props> = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, paddingHorizontal: 16 }}>
       <ThemedTextInput
         value={search}
         onChangeText={onSearch}
         placeholder="Search"
         style={[
           {
-            margin: 16,
+            marginVertical: 16,
             borderRadius: 10,
             shadowOffset: { width: 0, height: 10 },
             shadowOpacity: 0.25,
@@ -56,14 +56,12 @@ const ListView: React.FC<Props> = ({ navigation }) => {
           },
         ]}
       />
-      <View
-        style={{ flex: 1, padding: 10, paddingTop: 0, alignItems: 'center' }}
-      >
+      <View style={{ flex: 1, paddingTop: 0, alignItems: 'center' }}>
         <FlatList
           data={filteredPlants}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <ListItem item={item} />}
-          contentContainerStyle={{ paddingBottom: 50 }} // Add padding to the bottom of the list
+          contentContainerStyle={{ paddingBottom: 60 }} // Add padding to the bottom of the list
         />
       </View>
       <Button
@@ -75,7 +73,7 @@ const ListView: React.FC<Props> = ({ navigation }) => {
           position: 'absolute',
           alignSelf: 'center',
           bottom: 10,
-          width: '90%',
+          width: '100%',
         }}
       />
     </View>

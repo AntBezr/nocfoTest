@@ -168,6 +168,7 @@ const EditView: React.FC<Props> = ({ route }) => {
             <LabeledInput
               label="Name"
               value={name}
+              type="text"
               onChangeText={setName}
               multiline={false}
               numberOfLines={1}
@@ -175,6 +176,7 @@ const EditView: React.FC<Props> = ({ route }) => {
             <LabeledInput
               label="Description"
               value={description}
+              type="text"
               onChangeText={setDescription}
               multiline
               numberOfLines={3}

@@ -1,30 +1,30 @@
-import Colors from "constants/Colors";
+import Colors from 'constants/Colors';
 
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   Text as DefaultText,
-  View as DefaultView,
   TextInput as DefaultTextInput,
-  ScrollView,
-  Modal,
-  TouchableWithoutFeedback,
+  View as DefaultView,
   Keyboard,
-} from "react-native";
+  Modal,
+  ScrollView,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import {
   TextProps,
   ThemedModalProps,
   ThemedScrollViewProps,
   ThemedTextInputProps,
   ViewProps,
-} from "types/themedComponents";
+} from 'types/themedComponents';
 
-import { useColorScheme } from "../hooks/useColorScheme";
+import { useColorScheme } from '../hooks/useColorScheme';
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
   colorName: keyof typeof Colors.light & keyof typeof Colors.dark,
 ) {
-  const theme = useColorScheme() ?? "light";
+  const theme = useColorScheme() ?? 'light';
   const colorFromProps = props[theme];
 
   if (colorFromProps) {
@@ -36,7 +36,7 @@ export function useThemeColor(
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
   return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
@@ -45,7 +45,7 @@ export function View(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background",
+    'background',
   );
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
@@ -53,10 +53,10 @@ export function View(props: ViewProps) {
 
 export function ThemedTextInput(props: ThemedTextInputProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background",
+    'background',
   );
 
   return (
@@ -68,7 +68,7 @@ export function ThemedTextInput(props: ThemedTextInputProps) {
           padding: 10,
           borderRadius: 5,
           borderWidth: 1,
-          borderColor: "#ccc",
+          borderColor: '#ccc',
         },
         style,
       ]}
@@ -83,14 +83,14 @@ export function ThemedScrollView(props: ThemedScrollViewProps) {
     props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background",
+    'background',
   );
 
   return (
     <ScrollView
       {...otherProps}
       contentContainerStyle={[
-        { flexGrow: 1, padding: 20, backgroundColor },
+        { flexGrow: 1, backgroundColor },
         contentContainerStyle,
       ]}
       style={{ backgroundColor }}
@@ -109,7 +109,7 @@ export function ThemedModal({
 }: ThemedModalProps) {
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background",
+    'background',
   );
 
   return (
@@ -124,9 +124,9 @@ export function ThemedModal({
         <View
           style={{
             flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(0,0,0,0.5)",
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.5)',
           }}
         >
           <TouchableWithoutFeedback onPress={() => {}}>
@@ -135,7 +135,7 @@ export function ThemedModal({
                 backgroundColor,
                 padding: 20,
                 borderRadius: 10,
-                width: "80%",
+                width: '80%',
               }}
             >
               {children}
@@ -149,19 +149,19 @@ export function ThemedModal({
 
 export function ThemedGradient() {
   const fadeStartColor = useThemeColor(
-    { light: "rgba(247, 249, 252,1)", dark: "rgba(0,0,0,1)" },
-    "background",
+    { light: 'rgba(247, 249, 252,1)', dark: 'rgba(0,0,0,1)' },
+    'background',
   );
   const fadeEndColor = useThemeColor(
-    { light: "rgba(255,255,255,0)", dark: "rgba(18, 18, 18,0)" },
-    "background",
+    { light: 'rgba(255,255,255,0)', dark: 'rgba(18, 18, 18,0)' },
+    'background',
   );
 
   return (
     <LinearGradient
       colors={[fadeStartColor, fadeEndColor]}
       style={{
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         left: 0,
         right: 0,

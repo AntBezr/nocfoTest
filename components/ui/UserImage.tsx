@@ -1,21 +1,8 @@
-import { View } from "@components/Themed";
-import React from "react";
-import { Image } from "react-native";
+import { View } from '@components/Themed';
+import React from 'react';
 
-const UserImage = ({ image }: { image: string }) => {
-  return (
-    <View>
-      <Image
-        source={require("@assets/images/user.jpg")}
-        style={{
-          width: 140,
-          height: 140,
-          borderRadius: 120,
-          resizeMode: "cover",
-        }}
-      />
-    </View>
-  );
+const UserImage = () => {
+  return <View></View>;
 };
 
 export default UserImage;

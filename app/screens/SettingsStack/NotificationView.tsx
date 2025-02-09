@@ -3,8 +3,15 @@ import Button from '@components/ui/ButtonSecondary';
 import SwitchComponent from '@components/ui/Switch';
 import { useAppSelector } from '@hooks/useAppSelector';
 import { useUserActions } from '@hooks/useUserActions';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from 'expo-router';
 import React, { useState } from 'react';
+import { SettingsStackParamList } from 'types/navigation';
+
+type NotificationViewNavigationProp = NativeStackNavigationProp<
+  SettingsStackParamList,
+  'NotificationView'
+>;
 
 const NotificationView = () => {
   const userSettings = useAppSelector((state) => state.user.notifications);
@@ -21,7 +28,7 @@ const NotificationView = () => {
   const [plantCareTips, setPlantCareTips] = useState<boolean>(
     userSettings.plantCareTips,
   );
-  const navigation = useNavigation();
+  const navigation = useNavigation<NotificationViewNavigationProp>();
   const { editNotifications } = useUserActions();
 
   const onPressSave = () => {
@@ -35,8 +42,8 @@ const NotificationView = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <ThemedScrollView style={{ flex: 1, alignItems: 'center', padding: 16 }}>
+    <View style={{ flex: 1, padding: 16 }}>
+      <ThemedScrollView style={{ flex: 1 }}>
         <SwitchComponent
           label="Water plant"
           value={waterPlant}
@@ -67,7 +74,7 @@ const NotificationView = () => {
           position: 'absolute',
           alignSelf: 'center',
           bottom: 10,
-          width: '90%',
+          width: '100%',
         }}
       />
     </View>

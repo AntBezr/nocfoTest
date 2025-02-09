@@ -1,8 +1,8 @@
-import { useThemeColor } from "@components/Themed";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import EditProfile from "@screens/ProfileStack/EditProfile";
-import ProfileScreen from "@screens/ProfileStack/ProfileScreen";
-import { ProfileStackParamList } from "types/navigation";
+import { useThemeColor } from '@components/Themed';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import EditProfile from '@screens/ProfileStack/EditProfile';
+import ProfileScreen from '@screens/ProfileStack/ProfileScreen';
+import { ProfileStackParamList } from 'types/navigation';
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
@@ -10,19 +10,19 @@ export default function ProfileStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: useThemeColor({}, "background") },
-        headerTintColor: useThemeColor({}, "text"),
+        headerStyle: { backgroundColor: useThemeColor({}, 'background') },
+        headerTintColor: useThemeColor({}, 'text'),
       }}
     >
       <Stack.Screen
-        name="ProfileScreen"
+        name="ProfileView"
         component={ProfileScreen}
-        options={{ title: "Profile" }}
+        options={{ title: 'Profile' }}
       />
       <Stack.Screen
-        name="EditProfile"
+        name="EditProfileView"
         component={EditProfile}
-        options={{ title: "Add new plant" }}
+        options={{ title: 'Edit profile' }}
       />
     </Stack.Navigator>
   );
